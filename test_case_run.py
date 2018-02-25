@@ -43,7 +43,7 @@ if __name__ == '__main__':
                             description='环境：window 7 浏览器： Chrome')
     discover = unittest.defaultTestLoader.discover('./test_case/testcases',pattern = '*_testcase.py')
     #================================================================================================================
-    #定时跑case
+    #定时跑case111
     k = 1
     while k < 2:
         timing = time.strftime('%H:%M', time.localtime(time.time()))
