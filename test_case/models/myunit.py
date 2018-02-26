@@ -18,7 +18,6 @@ import os
 class MyTest(unittest.TestCase):
     def setUp(self):
         self.driver = broswer()
-        # self.clearCache()
         self.driver.implicitly_wait(20)
         self.driver.maximize_window()
         self.driver.delete_all_cookies()  # 删除所有cookie
