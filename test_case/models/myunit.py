@@ -23,7 +23,7 @@ class MyTest(unittest.TestCase):
         self.driver.maximize_window()
         self.driver.delete_all_cookies()  # 删除所有cookie
 
-    def tesrDown(self):
+    def tearDown(self):
         self.driver.quit()
 
     def clearCache(self):
