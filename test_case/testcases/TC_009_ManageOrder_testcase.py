@@ -41,7 +41,7 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #【待处理】转入【专家测评】
-    # @unittest.MyCaseSkip #如果上一个case执行失败，则跳过次case
+    #@unittest.Myskip #如果上一个case执行失败，则跳过次case
     def aa_test_0002_moveToExpert(self):
         self.user_login_verify()
         time.sleep(1)
@@ -56,8 +56,8 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #【专家测评】转入【机构寻访】
-    # @unittest.MyCaseSkip
-    def test_0003_moveToAgency(self):
+    #@unittest.Myskip
+    def aa_test_0003_moveToAgency(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -71,8 +71,8 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #创建意向单
-    # @unittest.MyCaseSkip
-    def test_0004_createAimOrder(self):
+    #@unittest.Myskip
+    def aa_test_0004_createAimOrder(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -86,8 +86,8 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #创建子订单
-    # @unittest.MyCaseSkip
-    def test_0005_createSubOrder(self):
+    #@unittest.Myskip
+    def aa_test_0005_createSubOrder(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -101,8 +101,8 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #子订单【贷前辅导】转入【机构审批】
-    # @unittest.MyCaseSkip
-    def test_0006_moveSubOrderToOrgApproval(self):
+    #@unittest.Myskip
+    def aa_test_0006_moveSubOrderToOrgApproval(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -116,8 +116,8 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #【机构审批】--信贷经理评价
-    # @unittest.MyCaseSkip
-    def test_0007_estimateCreditManager(self):
+    #@unittest.Myskip
+    def aa_test_0007_estimateCreditManager(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -131,8 +131,8 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #【机构审批】--机构审批：不通过
-    # @unittest.MyCaseSkip
-    def test_0008_OrgApproveNotPass(self):
+    #@unittest.Myskip
+    def aa_test_0008_OrgApproveNotPass(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -146,8 +146,8 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #【机构审批】--机构审批： 通过
-    # @unittest.MyCaseSkip
-    def test_0009_OrgApprovePass(self):
+    #@unittest.Myskip
+    def aa_test_0009_OrgApprovePass(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -161,7 +161,7 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.close()
 
     #【机构审批】--子订单成交，提交放款喜报
-    # @unittest.MyCaseSkip
+    #@unittest.Myskip
     def test_0010_submitChanelResult(self):
         self.user_login_verify()
         time.sleep(1)
