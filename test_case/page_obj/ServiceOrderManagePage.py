@@ -433,11 +433,11 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.org_deal_submit_loc).click()
         time.sleep(2)
         self.close_alert()
-        time.sleep(3)
+        time.sleep(2)
         self.switchWindow()
-        time.sleep(1)
         self.inputChanalResultDetail()
 
+#------------------------------------------------------------------------------------------------
     #放款喜报填写详情页
     chanel_result_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     loan_total_amt_loc = (By.ID,'LendingTotal')#放款额度
@@ -455,8 +455,6 @@ class ServiceManageOrderPage(Page):
     loan_confirm_loc = (By.CLASS_NAME,'layui-layer-btn0')#确认无误
 
     def inputChanalResultDetail(self):
-        self.switchToCurrentWindow()
-        time.sleep(1)
         self.switchToOneFrame2(self.chanel_result_frame_loc)
         self.setWaitTime(10)
         self.find_element(*self.loan_total_amt_loc).clear()
@@ -477,4 +475,5 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.loan_submit_loc).click()
         time.sleep(2)
         self.switchWindow()
-        # self.find_element(*self.loan_confirm_loc)
+        self.find_element(*self.loan_confirm_loc).click()
+
