@@ -47,7 +47,7 @@ class ServiceManageOrderPage(Page):
         self.setWaitTime(10)
         self.find_element(*self.my_order_loc).click()
         self.switchToDefaultContent()
-        self.switchToOneFrame2(self.order_list_frame_loc)
+        self.switchToOneFrameByXpath(self.order_list_frame_loc)
 
     #===================================================================================================
     #接单
@@ -65,7 +65,7 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.recive_order_loc).click()
         # time.sleep(1)
         self.switchWindow()
-        self.switchToOneFrame2(self.pop_frame_loc)
+        self.switchToOneFrameByXpath(self.pop_frame_loc)
         self.scrollToElement('xpath',self.scroll_submit_loc)
         self.find_element(*self.submit_loc).click()
 
@@ -96,7 +96,7 @@ class ServiceManageOrderPage(Page):
         time.sleep(2)
         self.find_element(*self.movetoExpert_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.confirm_frame_loc)
+        self.switchToOneFrameByXpath(self.confirm_frame_loc)
         self.find_element(*self.memo_loc).clear()
         self.find_element(*self.memo_loc).send_keys('自动化测试--转入专家测评')
         self.find_element(*self.confirm_btn_loc).click()
@@ -128,7 +128,7 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.moveToAgency_loc).click()
         self.setWaitTime(10)
         self.switchWindow()
-        self.switchToOneFrame2(self.exp_pop_iframe_loc)
+        self.switchToOneFrameByXpath(self.exp_pop_iframe_loc)
         self.find_element(*self.exp_memo_loc).clear()
         self.find_element(*self.exp_memo_loc).send_keys('自动化测试--转入机构寻访')
         self.find_element(*self.exp_submit_loc).click()
@@ -174,7 +174,7 @@ class ServiceManageOrderPage(Page):
         '''打开预测评'''
         self.find_element(*self.agen_evalu_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.agen_pop_iframe_loc)
+        self.switchToOneFrameByXpath(self.agen_pop_iframe_loc)
         time.sleep(1)
         self.find_element(*self.np_comfirm_loc).click()
         time.sleep(1)
@@ -244,7 +244,7 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.aim_order_mng_loc).click()
         self.switchWindow()
         time.sleep(2)
-        self.switchToOneFrame2(self.sub_pop_iframe_loc)
+        self.switchToOneFrameByXpath(self.sub_pop_iframe_loc)
         self.find_element(*self.credit_manage_loc).clear()
         self.find_element(*self.credit_manage_loc).send_keys(credit_manager)
         self.find_element(*self.sub_org_name_loc).clear()
@@ -255,7 +255,7 @@ class ServiceManageOrderPage(Page):
         '''创建子订单'''
         self.find_element(*self.createSubOrder_btn_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.suborder_det_loc)
+        self.switchToOneFrameByXpath(self.suborder_det_loc)
         self.scrollToElement('xpath',self.move_sub_submit_loc)
         self.find_element(*self.evaluation_amt_loc).clear()
         self.find_element(*self.evaluation_amt_loc).send_keys(50)
@@ -290,7 +290,7 @@ class ServiceManageOrderPage(Page):
 
         self.find_element(*self.movetoOrgAppr_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.coach_frame_loc)
+        self.switchToOneFrameByXpath(self.coach_frame_loc)
         self.find_element(*self.coach_memo_loc).clear()
         self.find_element(*self.coach_memo_loc).send_keys('自动化测试--【贷前辅导】转入【机构审批】')
         self.find_element(*self.coach_submit_loc).click()
@@ -329,7 +329,7 @@ class ServiceManageOrderPage(Page):
 
         self.find_element(*self.credit_estimat_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.estimate_frame_loc)
+        self.switchToOneFrameByXpath(self.estimate_frame_loc)
         self.find_element(*self.estimate_totalScrore_loc).click()
         self.find_element(*self.estimate_attituteScore_loc).click()
         self.find_element(*self.estimate_speedScore_loc).click()
@@ -365,7 +365,7 @@ class ServiceManageOrderPage(Page):
 
         self.find_element(*self.org_approve_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.org_appr_frame_loc)
+        self.switchToOneFrameByXpath(self.org_appr_frame_loc)
         time.sleep(2)
         self.find_element(*self.org_appr_pass_loc).click()
         self.find_element(*self.org_appr_amt_loc).clear()
@@ -391,7 +391,7 @@ class ServiceManageOrderPage(Page):
 
         self.find_element(*self.org_approve_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.org_appr_frame_loc)
+        self.switchToOneFrameByXpath(self.org_appr_frame_loc)
         self.find_element(*self.org_appr_reject_loc).click()
         time.sleep(2)
         self.find_element(*self.org_appr_memo_loc).clear()
@@ -425,7 +425,7 @@ class ServiceManageOrderPage(Page):
 
         self.find_element(*self.dealwith_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.org_deal_frame_loc)
+        self.switchToOneFrameByXpath(self.org_deal_frame_loc)
         self.scrollToElement('id',self.moveto_deal_desc_loc)
         self.find_element(*self.org_deal_desc_loc).clear()
         self.find_element(*self.org_deal_desc_loc).send_keys('自动化测试--子订单成交')
@@ -434,7 +434,9 @@ class ServiceManageOrderPage(Page):
         time.sleep(2)
         self.close_alert()
         time.sleep(2)
+
         self.switchWindow()
+        time.sleep(2)
         self.inputChanalResultDetail()
 
 #------------------------------------------------------------------------------------------------
@@ -455,19 +457,19 @@ class ServiceManageOrderPage(Page):
     loan_confirm_loc = (By.CLASS_NAME,'layui-layer-btn0')#确认无误
 
     def inputChanalResultDetail(self):
-        self.switchToOneFrame2(self.chanel_result_frame_loc)
+        self.switchToOneFrameByXpath(self.chanel_result_frame_loc)
         self.setWaitTime(10)
         self.find_element(*self.loan_total_amt_loc).clear()
         self.find_element(*self.loan_total_amt_loc).send_keys(500000)
         self.find_element(*self.loan_org_rate_loc).clear()
         self.find_element(*self.loan_org_rate_loc).send_keys(10)
-        self.getDropdownMenu3(self.loan_oprate_type_loc,1)
+        self.getDropdownMenuById(self.loan_oprate_type_loc, 1)
         self.scrollToElement('xpath',self.moveto_loan_submit_loc)
         self.find_element(*self.loan_org_other_rate_loc).clear()
         self.find_element(*self.loan_org_other_rate_loc).send_keys(10)
-        self.getDropdownMenu3(self.loan_other_rate_type_loc,1)
-        self.getDropdownMenu3(self.loan_repay_type_loc,1)
-        self.getDropdownMenu3(self.loan_oprate_type_loc,1)
+        self.getDropdownMenuById(self.loan_other_rate_type_loc, 1)
+        self.getDropdownMenuById(self.loan_repay_type_loc, 1)
+        self.getDropdownMenuById(self.loan_oprate_type_loc, 1)
         self.getDateTimePicker(self.loan_startdate_loc,time.strftime('%Y-%m-%d',time.localtime(time.time())))
         self.getDateTimePicker(self.loan_enddate_loc,time.strftime('%Y-%m-%d',time.localtime(time.time())))
         self.find_element(*self.loan_memo_loc).clear()
