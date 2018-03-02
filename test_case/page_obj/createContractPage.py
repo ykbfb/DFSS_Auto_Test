@@ -37,7 +37,7 @@ class NewContractPage(Page):
         self.setWaitTime(20)
         self.find_element(*self.createNewContract_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.contract_frame_loc)
+        self.switchToOneFrameByXpath(self.contract_frame_loc)
 
     #输入合同详情
     VIP_contract_type_loc = (By.ID,'contractType1') #债权会员合同
@@ -46,18 +46,18 @@ class NewContractPage(Page):
     def inputContractDetail_VIP(self,index=0):
         self.index = index
         self.find_element(*self.VIP_contract_type_loc).click()
-        self.getDropdownMenu3(self.contract_code_loc,index)
+        self.getDropdownMenuById(self.contract_code_loc, index)
 
     def inputContractDetail_BPO(self,index=0):
         self.index = index
         self.find_element(*self.BPO_contract_type_loc).click()
-        self.getDropdownMenu3(self.contract_code_loc,index)
+        self.getDropdownMenuById(self.contract_code_loc, index)
 
     #选择合同客户名称
     contract_name_loc = 'selType'
     def selectContractName(self,index=0):
         self.index = index
-        self.getDropdownMenu3(self.contract_code_loc,index)
+        self.getDropdownMenuById(self.contract_code_loc, index)
 
     #预估额度
     predit_loanAmt_loc = (By.ID,'txtPreditAmount')
@@ -120,7 +120,7 @@ class NewContractPage(Page):
         self.find_element(*self.change_VIPContract_loc).click()
         self.switchWindow()
         # self.find_element(*self.popWinMax_loc).click()
-        # self.switchToOneFrame2(self.contract_frame_loc)
+        # self.switchToOneFrameByXpath(self.contract_frame_loc)
 
 
 #==============================================================================================================================================

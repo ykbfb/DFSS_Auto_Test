@@ -43,14 +43,14 @@ class ChannalResultApprovalPage(Page):
         self.click_element(*self.loanmanage_nav_loc)
         self.waitElmentUntill(10,self.channalresult_appr_loc)
         self.click_element(*self.channalresult_appr_loc)
-        self.switchToOneFrame2(self.chan_frame_loc)
+        self.switchToOneFrameByXpath(self.chan_frame_loc)
         self.waitElmentUntill(20,self.channalresult_cmpname_loc)
         self.input_value(self.channalresult_cmpname_loc,value)
         self.click_element(*self.chan_search_loc)
         # time.sleep(10)
         self.waitElmentUntill(20,self.order_detail_loc)
         self.click_element(*self.order_detail_loc)
-        self.switchToOneFrame2(self.order_detal_frame_loc)
+        self.switchToOneFrameByXpath(self.order_detal_frame_loc)
         self.scrollToElement('id',self.moveto_chanl_apprv_memo_loc)
         self.input_value(self.chanl_apprv_memo_loc,'自动化测试:融资喜报审批--融资总监')
         self.click_element(*self.approve_pass_loc)
@@ -77,14 +77,14 @@ class ChannalResultApprovalPage(Page):
         self.click_element(*self.finance_menu_loc)
         self.click_element(*self.fin_chanlresult_menu_loc)
         self.setWaitTime(10)
-        self.switchToOneFrame2(self.fin_chanl_resultlistframe_loc)
+        self.switchToOneFrameByXpath(self.fin_chanl_resultlistframe_loc)
         self.input_value(self.fin_clt_name_loc,value)
         self.click_element(*self.fin_search_btn_loc)
 
         time.sleep(1)
         self.click_element(*self.fin_order_result_loc)
         self.switchWindow()
-        self.switchToOneFrame2(self.fin_order_detal_frame_loc)
+        self.switchToOneFrameByXpath(self.fin_order_detal_frame_loc)
         self.scrollToElement('id',self.fin_move_apprv_memo_loc)
         self.input_value(self.fin_apprv_memo_loc,'自动化测试：融资喜报审批--分公司财务')
         self.click_element(*self.fin_apprv_pass_loc)
@@ -120,15 +120,15 @@ class ChannalResultApprovalPage(Page):
         self.value = value
         self.click_element(*self.dt_chanlresult_menu_loc)
         self.setWaitTime(20)
-        self.switchToOneFrame2(self.dt_chanl_resultlistframe_loc)
-        self.getDropdownMenu3(self.dt_chanl_city_loc,0)
+        self.switchToOneFrameByXpath(self.dt_chanl_resultlistframe_loc)
+        self.getDropdownMenuById(self.dt_chanl_city_loc, 0)
         self.input_value(self.dt_clt_name_loc,value)
         self.click_element(*self.dt_search_loc)
 
         time.sleep(1)
         self.click_element(*self.dt_order_detail_loc)
         self.switchWindow()
-        self.switchToOneFrame2(self.dt_order_detal_frame_loc)
+        self.switchToOneFrameByXpath(self.dt_order_detal_frame_loc)
         self.scrollToElement('id',self.dt_move_apprv_memo_loc)
         self.input_value(self.dt_apprv_memo_loc,'自动化测试：融资喜报审批--数据部')
         self.click_element(*self.dt_apprv_pass_loc)
@@ -139,7 +139,7 @@ class ChannalResultApprovalPage(Page):
         #喜报详情页
         self.switchWindow()
         time.sleep(2)
-        self.switchToOneFrame2(self.dt_chanl_resultdetail_frame_loc) #此处有问题：一个弹窗关闭，又出来一个弹窗，定位不到当前窗口
+        self.switchToOneFrameByXpath(self.dt_chanl_resultdetail_frame_loc) #此处有问题：一个弹窗关闭，又出来一个弹窗，定位不到当前窗口
         self.scrollToElement('id',self.dt_move_save_close_loc)
         self.click_element(*self.dt_save_close_loc)
         time.sleep(1)
@@ -151,7 +151,7 @@ class ChannalResultApprovalPage(Page):
 
         #QQ广播页面
         self.switchWindow()
-        self.switchToOneFrame2(self.dt_message_frame_loc)
+        self.switchToOneFrameByXpath(self.dt_message_frame_loc)
         self.click_element(*self.dt_msg_send_loc)
         time.sleep(1)
 

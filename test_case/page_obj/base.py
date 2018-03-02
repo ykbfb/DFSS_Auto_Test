@@ -111,7 +111,7 @@ class Page(object):
         self.driver.switch_to.default_content()
         print('switch to default frame...')
 
-    def switchToOneFrame2(self, frame):  # frame没有id,name
+    def switchToOneFrameByXpath(self, frame):  # frame没有id,name, 根据xpath定位
         self.frame = frame
         trg_frame = self.driver.find_element_by_xpath(frame)
         self.driver.switch_to.frame(trg_frame)
@@ -207,10 +207,10 @@ class Page(object):
         self.driver.find_element_by_xpath(drop_elem).click()
 
     # 通过select定位下拉框元素
-    def getDropdownMenu2(self, dropMenu_path,value):  # find_type定位元素的方式、dropMenu_path下拉框元素的路径、Value下列选项所在的位置索引
+    def getDropdownMenuByXpath(self, dropMenu_path, value):  # find_type定位元素的方式、dropMenu_path下拉框元素的路径、Value下列选项所在的位置索引
             Select(self.driver.find_element_by_xpath(dropMenu_path)).select_by_index(value)
 
-    def getDropdownMenu3(self, dropMenu_path,value):  # find_type定位元素的方式、dropMenu_path下拉框元素的路径、Value下列选项所在的位置索引
+    def getDropdownMenuById(self, dropMenu_path, value):  # find_type定位元素的方式、dropMenu_path下拉框元素的路径、Value下列选项所在的位置索引
             Select(self.driver.find_element_by_id(dropMenu_path)).select_by_index(value)
 
 #============================================================================================================================================

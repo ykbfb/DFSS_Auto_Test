@@ -63,7 +63,7 @@ class finceBookInfo(Page):
     clt_IDCard_loc = 'selCertificateType' #证件类型
     def setCltID(self,index = '0'):
         self.index = index
-        self.getDropdownMenu3(self.clt_IDCard_loc,index)
+        self.getDropdownMenuById(self.clt_IDCard_loc, index)
 
     #输入身份证号
     lnk_IDCardNo_loc = (By.ID,'txtLnkID')#身份证
@@ -76,23 +76,23 @@ class finceBookInfo(Page):
     clt_education_loc = 'selEducation' #学历
     def selectCltEducation(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.clt_education_loc,index)
+        self.getDropdownMenuById(self.clt_education_loc, index)
     #选择省份
     clt_live_provence_loc = 'selLnkProvince' #户籍—省份
     def selectCltLiveProvence(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.clt_live_provence_loc,index)
+        self.getDropdownMenuById(self.clt_live_provence_loc, index)
     #选择城市
     clt_live_city_loc = 'selLnkCity' #户籍—城市
     def selectCltLiveCity(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.clt_live_city_loc,index)
+        self.getDropdownMenuById(self.clt_live_city_loc, index)
 
     #选择本市居住时长
     clt_currcity_livetime_loc = 'selLocalLivedTime' #本市居住时长
     def selectCltLiveTime(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.clt_currcity_livetime_loc,index)
+        self.getDropdownMenuById(self.clt_currcity_livetime_loc, index)
 
 #=====================================================================================================================================================
 # 需求信息
@@ -125,13 +125,13 @@ class finceBookInfo(Page):
     clt_RqrReason_loc = 'selRqrReason' #贷款用途
     def selectRqrReason(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.clt_RqrReason_loc,index)
+        self.getDropdownMenuById(self.clt_RqrReason_loc, index)
 
     #还款来源
     clt_ReturnSource_loc = 'selReturnSource' #还款来源
     def selectReturnSource(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.clt_ReturnSource_loc,index)
+        self.getDropdownMenuById(self.clt_ReturnSource_loc, index)
 
     #最高可接受月利率
     MaxAcceptMonthRate_loc = (By.ID,'txtMaxAcceptMonthRate')#最高可接受月利率
@@ -151,7 +151,7 @@ class finceBookInfo(Page):
     LoanEmergencyDegrees_loc = 'selLoanEmergencyDegrees' #紧急程度
     def selectLoanEmergency(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.LoanEmergencyDegrees_loc,index)
+        self.getDropdownMenuById(self.LoanEmergencyDegrees_loc, index)
 
 #================================================================================================================================================
 # 企业信息
@@ -169,7 +169,7 @@ class finceBookInfo(Page):
     selShares_loc = 'selShares'
     def selectShares(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.selShares_loc,index)
+        self.getDropdownMenuById(self.selShares_loc, index)
 
     #企业经营地
     rbCompanyLocation_loc = (By.ID,'rbCompanyLocation1')
@@ -180,7 +180,7 @@ class finceBookInfo(Page):
     selCompanyNature_loc = 'selCompanyNature'
     def selectCmpNatture(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.selCompanyNature_loc,index)
+        self.getDropdownMenuById(self.selCompanyNature_loc, index)
 
     #企业名称
     cmpName_loc = (By.ID,'txtCmpName')
@@ -193,7 +193,7 @@ class finceBookInfo(Page):
     selTrade_loc = 'selTrade'
     def selectCmpRadeArea(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.selTrade_loc,index)
+        self.getDropdownMenuById(self.selTrade_loc, index)
 
     #详细地址
     cmpAddress_loc = (By.ID,'txtCmpAddr')
@@ -213,49 +213,49 @@ class finceBookInfo(Page):
     cmpType_loc = 'selEnterpriseType'
     def selectCmpType(self,index = '5'):
         self.index = index
-        self.getDropdownMenu3(self.cmpType_loc,index)
+        self.getDropdownMenuById(self.cmpType_loc, index)
 
     #全年开票额
     cmpYearBill_loc = 'selYearBill'
     def selectCmpYearBill(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.cmpYearBill_loc,index)
+        self.getDropdownMenuById(self.cmpYearBill_loc, index)
 
     #月对私流水
     cmpToPrivate_loc = 'selToPrivate'
     def selectCmpToPrivate(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.cmpToPrivate_loc,index)
+        self.getDropdownMenuById(self.cmpToPrivate_loc, index)
 
     #月对公流水
     cmpToPublic_loc = 'selToPublic'
     def selectCmpToPublic(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.cmpToPublic_loc,index)
+        self.getDropdownMenuById(self.cmpToPublic_loc, index)
 
     #年净利润
     cmp_RetainedProfits_loc = 'selYearSalary'
     def selectCmpRetainedProfits(self,index = '5'):
         self.index = index
-        self.getDropdownMenu3(self.cmp_RetainedProfits_loc,index)
+        self.getDropdownMenuById(self.cmp_RetainedProfits_loc, index)
 
     #资产负责率
     cmp_LiabilityRate_loc = 'selLiabilityRate'
     def selectCmpLiabilityRate(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.cmp_LiabilityRate_loc,index)
+        self.getDropdownMenuById(self.cmp_LiabilityRate_loc, index)
 
     #营业执照年限
     cmp_license_loc = 'selOPYears'
     def selectCmpLicense(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.cmp_license_loc,index)
+        self.getDropdownMenuById(self.cmp_license_loc, index)
 
     #注册资金
     cmp_SignAmount_loc = 'txtSignAmount'
     def selectCmpSignAmount(self,index = '4'):
         self.index = index
-        self.getDropdownMenu3(self.cmp_SignAmount_loc,index)
+        self.getDropdownMenuById(self.cmp_SignAmount_loc, index)
 
     #年营业额
     cmpYearTurnOverAmount_loc = (By.ID,'txtYearAmount')
@@ -267,7 +267,7 @@ class finceBookInfo(Page):
     cmp_IncomeAmount_loc = 'selYearInCome'
     def selectCmpIncomeAmount(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.cmp_IncomeAmount_loc,index)
+        self.getDropdownMenuById(self.cmp_IncomeAmount_loc, index)
 
 #===========================================================================================================================================]
 # 股权信息
@@ -285,7 +285,7 @@ class finceBookInfo(Page):
     FounderBackground_loc = 'selFounderBackground'
     def selectCmpFounderBackground(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.FounderBackground_loc,index)
+        self.getDropdownMenuById(self.FounderBackground_loc, index)
 
     #是否有机构股东
     InstShareholders_loc = (By.ID,'rbInstitutionalShareholders1')
@@ -308,7 +308,7 @@ class finceBookInfo(Page):
     IndustrySg_loc = 'selIndustrySegmentation'
     def selectCmpIndustrySg(self,index = '5'):
         self.index = index
-        self.getDropdownMenu3(self.IndustrySg_loc,index)
+        self.getDropdownMenuById(self.IndustrySg_loc, index)
 
 #=======================================================================================================================================
 # 信用及负责信息
@@ -321,7 +321,7 @@ class finceBookInfo(Page):
     creditAmt_loc = 'selCreditTotal'
     def selectCreditCardAmt(self,index = '6'):
         self.index = index
-        self.getDropdownMenu3(self.creditAmt_loc,index)
+        self.getDropdownMenuById(self.creditAmt_loc, index)
 
     #信用卡张数
     CreditCount_loc = (By.ID,'txtCreditCount')
@@ -334,13 +334,13 @@ class finceBookInfo(Page):
     PrecreditCardMaxAmt_loc = 'selCreditCardMaxAmount'
     def selectPerCreditCardMaxAmt(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.PrecreditCardMaxAmt_loc,index)
+        self.getDropdownMenuById(self.PrecreditCardMaxAmt_loc, index)
 
     #信用卡已用额度
     creditCardUsedAmt_loc = 'selCreditUsed'
     def selectCreditCardUsedAmt(self,index = '4'):
         self.index = index
-        self.getDropdownMenu3(self.creditCardUsedAmt_loc,index)
+        self.getDropdownMenuById(self.creditCardUsedAmt_loc, index)
 
     #选择银行
     bank1_loc = 'CreditBank2'
@@ -370,7 +370,7 @@ class finceBookInfo(Page):
     personCredit_loc = 'selMasterCredit'
     def selectPersonCredit(self,index = '6'):
         self.index = index
-        self.getDropdownMenu3(self.personCredit_loc,index)
+        self.getDropdownMenuById(self.personCredit_loc, index)
 
     # 个人逾期1个月次数
     person_overtime1_loc = (By.ID,'txtMasterOver1monthCount')
@@ -411,13 +411,13 @@ class finceBookInfo(Page):
     pair_credit_loc = 'selSpouceCredit'
     def selectPairCredit(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.pair_credit_loc,index)
+        self.getDropdownMenuById(self.pair_credit_loc, index)
 
     # 企业信用情况
     cmp_credit_loc = 'selEnterpriseCredit'
     def selectCmpCredit(self,index = '5'):
         self.index = index
-        self.getDropdownMenu3(self.cmp_credit_loc,index)
+        self.getDropdownMenuById(self.cmp_credit_loc, index)
 
     # 企业逾期总次数
     cmp_overtime_count_loc = (By.ID,'txtEnterpriseOverdueCount')
@@ -464,25 +464,25 @@ class finceBookInfo(Page):
     house_type_loc = 'selHouType'
     def selectHouseType(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.house_type_loc,index)
+        self.getDropdownMenuById(self.house_type_loc, index)
 
     # 房产性质
     house_property_loc = 'selHouseProperty'
     def selectHouseProperty(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.house_property_loc,index)
+        self.getDropdownMenuById(self.house_property_loc, index)
 
     # 房产位置
     house_location_loc = 'selHouArea'
     def selectHouseLocation(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.house_location_loc,index)
+        self.getDropdownMenuById(self.house_location_loc, index)
 
     # 房产面积
     house_square_loc = 'selHouSquare'
     def selectHouseSqure(self,index = '4'):
         self.index = index
-        self.getDropdownMenu3(self.house_square_loc,index)
+        self.getDropdownMenuById(self.house_square_loc, index)
 
     # 房产地址
     house_address_loc = (By.ID,'txtHouAddr')
@@ -507,7 +507,7 @@ class finceBookInfo(Page):
     house_evaluate_loc = 'txtHouAssessment'
     def selectHouseEvalution(self,index = '5'):
         self.index = index
-        self.getDropdownMenu3(self.house_evaluate_loc,index)
+        self.getDropdownMenuById(self.house_evaluate_loc, index)
 
     # 房龄
     house_age_loc = (By.ID,'txtHouseAge')
@@ -520,7 +520,7 @@ class finceBookInfo(Page):
     house_impawn_loc = 'selHouMortgage'
     def selectHouseImpawn(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.house_impawn_loc,index)
+        self.getDropdownMenuById(self.house_impawn_loc, index)
 
     # 贷款余额
     house_loanBalance_loc = (By.ID,'txtHouLoanBalance')
@@ -533,13 +533,13 @@ class finceBookInfo(Page):
     house_repayAmt_loc = 'selHouMonthRepay'
     def selectHouseRepayAmt(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.house_repayAmt_loc,index)
+        self.getDropdownMenuById(self.house_repayAmt_loc, index)
 
     # 抵押、按揭已还款月数
     house_returnAmt_loc = 'selHouReturnMonth'
     def selectHouseReturnAmt(self,index = '4'):
         self.index = index
-        self.getDropdownMenu3(self.house_returnAmt_loc,index)
+        self.getDropdownMenuById(self.house_returnAmt_loc, index)
 
     #是否有共权人
     isHasHouseOtherOwner_loc = 'rdHavePublicRightPerson1'
@@ -577,13 +577,13 @@ class finceBookInfo(Page):
     car_Province_loc = 'selCarBrandProvince'
     def selectCarProvince(self,index = 3):
         self.index = index
-        self.getDropdownMenu3(self.car_Province_loc,index)
+        self.getDropdownMenuById(self.car_Province_loc, index)
 
     # 牌照归属地--市
     car_city_loc = 'selCarBrandCity'
     def selectCarCity(self,index = 1):
         self.index = index
-        self.getDropdownMenu3(self.car_city_loc,index)
+        self.getDropdownMenuById(self.car_city_loc, index)
 
     # 车辆购买价格
     car_buyAmt_loc = (By.ID,'txtCarBuyAmout')
@@ -596,37 +596,37 @@ class finceBookInfo(Page):
     car_age_loc = 'selCarAge'
     def selectCarAge(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.car_age_loc,index)
+        self.getDropdownMenuById(self.car_age_loc, index)
 
     # 行驶里程
     car_distance_loc = 'selCarDistance'
     def selectCarDistance(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.car_distance_loc,index)
+        self.getDropdownMenuById(self.car_distance_loc, index)
 
     # 车产估值
     car_assesment_loc = 'selCarAssessment'
     def selectCarAssesment(self,index = '4'):
         self.index = index
-        self.getDropdownMenu3(self.car_assesment_loc,index)
+        self.getDropdownMenuById(self.car_assesment_loc, index)
 
     # 抵押、按揭状态
     car_loanStatus_loc = 'selCarLoan'
     def selectCarLoanStatus(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.car_loanStatus_loc,index)
+        self.getDropdownMenuById(self.car_loanStatus_loc, index)
 
     # 抵押、按揭月还款额
     car_perMPayment_loc = 'selCarLoanMonthlyPaymentsAmount'
     def selectCarPerMouthPayAmt(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.car_perMPayment_loc,index)
+        self.getDropdownMenuById(self.car_perMPayment_loc, index)
 
     # 抵押、按揭已还款月数
     car_paidMouth_loc = 'selCarLoanPaymentsMonths'
     def selectCarPaiedMouth(self,index = '3'):
         self.index = index
-        self.getDropdownMenu3(self.car_paidMouth_loc,index)
+        self.getDropdownMenuById(self.car_paidMouth_loc, index)
 
     # 贷款余额
     car_restAmt_loc = (By.ID,'txtCarLoadRest')
@@ -677,7 +677,7 @@ class finceBookInfo(Page):
     equip_Mortgage_loc = 'selEquipmentIsMortgage'
     def selectEquipMortgage(self,index = '2'):
         self.index = index
-        self.getDropdownMenu3(self.equip_Mortgage_loc,index)
+        self.getDropdownMenuById(self.equip_Mortgage_loc, index)
 
 #================================================================================================================================================
 # 保单信息
@@ -695,7 +695,7 @@ class finceBookInfo(Page):
     insure_type_Mortgage_loc = 'selInsuranceType'
     def selectInsureTpye(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.insure_type_Mortgage_loc,index)
+        self.getDropdownMenuById(self.insure_type_Mortgage_loc, index)
 
     # 有无中断过缴纳
     isInsureStopPay_loc = 'rdIsInterrupted2'
@@ -706,7 +706,7 @@ class finceBookInfo(Page):
     insure_payType_loc = 'selPaymentType'
     def selectInsurePayTpye(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.insure_payType_loc,index)
+        self.getDropdownMenuById(self.insure_payType_loc, index)
 
     # 已生效年限
     insure_effectTime_loc = (By.ID,'txtPolicyEffectedTime')
@@ -738,13 +738,13 @@ class finceBookInfo(Page):
     insure_person_loc = 'selInsurancePerson'
     def selectInsurePerson(self,index = '1'):
         self.index = index
-        self.getDropdownMenu3(self.insure_person_loc,index)
+        self.getDropdownMenuById(self.insure_person_loc, index)
 
     # 保险公司
     insure_cmp_loc = 'selInsuranceCompany'
     def selectInsureCmp(self,index = '5'):
         self.index = index
-        self.getDropdownMenu3(self.insure_cmp_loc,index)
+        self.getDropdownMenuById(self.insure_cmp_loc, index)
 
 #==============================================================================================================================================
 # 其他资产

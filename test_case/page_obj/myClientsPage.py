@@ -85,9 +85,9 @@ class myClient(Page):
 
     #切换到客户列表页
     def switchTomainPage(self):
-        self.switchToOneFrame2(self.mainframe_loc)
+        self.switchToOneFrameByXpath(self.mainframe_loc)
     def switchToClientList(self):
-        self.switchToOneFrame2(self.client_lisit_loc)
+        self.switchToOneFrameByXpath(self.client_lisit_loc)
 
     def goto_allClient(self):
         self.find_element(*self.click_All_loc).click()
@@ -187,7 +187,7 @@ class myClient(Page):
 
     #移动frame切换到客户列表
     def switchToClientListFrame(self):
-        self.switchToOneFrame2(self.client_lisit_loc)
+        self.switchToOneFrameByXpath(self.client_lisit_loc)
     
     #双击选中的客户: 打开拨打详情
     def dubleClickClient(self):
@@ -246,7 +246,7 @@ class myClient(Page):
         self.switchToParentFrame()
         # self.switchToDefaultContent()
     def switchToClientList2(self):
-        self.switchToOneFrame2(self.client_lisit_loc)
+        self.switchToOneFrameByXpath(self.client_lisit_loc)
 
 
 #--===========================================================================================

@@ -34,7 +34,7 @@ class NewOrderPage(Page):
         self.find_element(*self.bill_manage2_loc).click()
         time.sleep(2)
         self.switchToDefaultContent()
-        self.switchToOneFrame2(self.billList_loc)
+        self.switchToOneFrameByXpath(self.billList_loc)
 
     #填写问款详情
     add_bill_loc = (By.ID,'btnAdd')
@@ -50,7 +50,7 @@ class NewOrderPage(Page):
         self.contractCode = contractCode
         self.find_element(*self.add_bill_loc).click()
         self.switchWindow()
-        self.switchToOneFrame2(self.new_bill_frame_loc)
+        self.switchToOneFrameByXpath(self.new_bill_frame_loc)
         self.find_element(*self.contract_code_loc).clear()
         self.find_element(*self.contract_code_loc).send_keys(contractCode)
         time.sleep(1)
@@ -74,7 +74,7 @@ class NewOrderPage(Page):
         self.ContractCode = ContractCode
         self.find_element(*self.search_contract_code_loc).clear()
         self.find_element(*self.search_contract_code_loc).send_keys(ContractCode)
-        self.getDropdownMenu3(self.bill_status_loc,1)
+        self.getDropdownMenuById(self.bill_status_loc, 1)
         self.find_element(*self.search_loc).click()
 
 #============================================================================================================

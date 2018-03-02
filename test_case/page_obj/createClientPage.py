@@ -42,7 +42,7 @@ class createClient(Page):
         self.driver.implicitly_wait(10)
     #切换frame
     def switchToNewClientFrame(self):
-        self.switchToOneFrame2(self.newClient_frame_loc)
+        self.switchToOneFrameByXpath(self.newClient_frame_loc)
     #输入手机号
     def inputMobile(self,mobile='10000000011'):
         self.mobile = mobile
@@ -56,7 +56,7 @@ class createClient(Page):
         self.find_element(*self.save_loc).click()
     #选择客户进程
     def selectCltExeStatus(self):
-        self.getDropdownMenu2(self.clt_exe_status_loc,1)
+        self.getDropdownMenuByXpath(self.clt_exe_status_loc, 1)
     #选择借款地区
     def selectLoanArea(self):
         self.find_element(*self.loan_area_loc).click()

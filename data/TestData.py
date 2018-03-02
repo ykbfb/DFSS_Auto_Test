@@ -10,7 +10,7 @@ Created on 2018-01-04
 class Data:
 
     lnk_moblie = '10000000051'
-    cmp_name = '需求书修改有限公司8'
+    cmp_name = '需求书修改有限公司2'
 
     #合同打回、作废原因
     ctr_reject_memo = '自动化测试打回合同'
