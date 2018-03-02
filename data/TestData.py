@@ -21,3 +21,7 @@ class Data:
     org_name = '平安普惠'
     prd_name = '车主贷'
     credit_manager = '张安林'
+
+    #融资喜报审批
+    chanl_clt_name = '需求书修改有限公司'
+    fin_clt_name = 'AAC16110700195有限公司'
