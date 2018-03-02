@@ -52,10 +52,11 @@ class ChannalResultApprovalPage(Page):
         self.click_element(*self.order_detail_loc)
         self.switchToOneFrame2(self.order_detal_frame_loc)
         self.scrollToElement('id',self.moveto_chanl_apprv_memo_loc)
-        self.input_value(self.chanl_apprv_memo_loc,'自动化测试审批-通过')
+        self.input_value(self.chanl_apprv_memo_loc,'自动化测试:融资喜报审批--融资总监')
         self.click_element(*self.approve_pass_loc)
         time.sleep(1)
         self.close_alert()
+        time.sleep(1)
         self.close_alert()
 
     #放款喜报审批--分公司财务
@@ -85,8 +86,8 @@ class ChannalResultApprovalPage(Page):
         self.switchWindow()
         self.switchToOneFrame2(self.fin_order_detal_frame_loc)
         self.scrollToElement('id',self.fin_move_apprv_memo_loc)
-        self.input_value(self.fin_apprv_memo_loc,'自动化测试：融资喜报分公司财务审批')
-        self.click_element(self.fin_apprv_pass_loc)
+        self.input_value(self.fin_apprv_memo_loc,'自动化测试：融资喜报审批--分公司财务')
+        self.click_element(*self.fin_apprv_pass_loc)
         time.sleep(1)
         self.close_alert()
         time.sleep(1)
@@ -94,7 +95,7 @@ class ChannalResultApprovalPage(Page):
 
     #放款喜报审批-数据专员
     dt_chanlresult_menu_loc = (By.XPATH,'//*[@id="wnav"]/div[1]/div[2]/ul/li[9]/div/a/span[2]') #融资喜报审批
-    dt_chanl_resultlistframe_loc = (By.XPATH,'//*[@id="tabs"]/div[2]/div[2]/div/iframe')
+    dt_chanl_resultlistframe_loc = '//*[@id="tabs"]/div[2]/div[2]/div/iframe'
     dt_chanl_city_loc = 'citys_c'#城市
     dt_clt_name_loc = (By.ID,'querycode')#客户名称
     dt_search_loc = (By.ID,'Button4') #查询
@@ -113,17 +114,18 @@ class ChannalResultApprovalPage(Page):
 
     dt_message_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     dt_msg_send_loc = (By.XPATH,'//*[@id="main"]/div[1]/table/tbody/tr[4]/td[2]/input[1]') #发送
-    dt_send_success_loc = (By.CLASS_NAME,'layui-layer-btn0')
+    dt_send_success_loc = (By.CLASS_NAME,'layui-layer-btn0')#发送成功
 
     def approveChannalResult_DataManager(self, value):
         self.value = value
         self.click_element(*self.dt_chanlresult_menu_loc)
         self.setWaitTime(20)
         self.switchToOneFrame2(self.dt_chanl_resultlistframe_loc)
-        self.getDropdownMenu3(self.dt_chanl_city_loc,1)
+        self.getDropdownMenu3(self.dt_chanl_city_loc,0)
         self.input_value(self.dt_clt_name_loc,value)
-        self.click_element(self.dt_search_loc)
+        self.click_element(*self.dt_search_loc)
 
+        time.sleep(1)
         self.click_element(*self.dt_order_detail_loc)
         self.switchWindow()
         self.switchToOneFrame2(self.dt_order_detal_frame_loc)
@@ -133,8 +135,11 @@ class ChannalResultApprovalPage(Page):
         time.sleep(1)
         self.close_alert()
         time.sleep(3)
+
+        #喜报详情页
         self.switchWindow()
-        self.switchToOneFrame2(self.dt_chanl_resultdetail_frame_loc)
+        time.sleep(2)
+        self.switchToOneFrame2(self.dt_chanl_resultdetail_frame_loc) #此处有问题：一个弹窗关闭，又出来一个弹窗，定位不到当前窗口
         self.scrollToElement('id',self.dt_move_save_close_loc)
         self.click_element(*self.dt_save_close_loc)
         time.sleep(1)
