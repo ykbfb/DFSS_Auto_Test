@@ -41,7 +41,7 @@ class ContractTests(myunit.MyTest):
         my_client.close()
 
     # 创建DC访邀约
-    def aa_test_0002_createIntview_DC(self):
+    def test_0002_createIntview_DC(self):
         self.user_login_verify()
         my_client = myClient(self.driver)
         my_client.gotoMyClientList_All(Data.lnk_moblie)

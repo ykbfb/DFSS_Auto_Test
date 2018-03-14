@@ -13,6 +13,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+import random
 
 
 '''
@@ -241,6 +242,20 @@ class Page(object):
         self.driver.implicitly_wait(10)
         print("The date time is: ", self.driver.find_element_by_id(timePicker_id).get_attribute('value'))
 
+    # ============================================================================================================================================
+    # --只读输入框文字输入
+    def inputForReadonlyEle(self, ele_id, value):  # timePicker_id时间控件的id；  time_value手动输入日期的值
+        # 将时间控件字段置为空
+        jStr1 = "$('input[id="
+        jStr2 = "]').attr('readonly',false)"
+        js = jStr1 + ele_id + jStr2
+        self.driver.execute_script(js)
+
+        # 找到时间控件元素，并手动输入日期
+        self.driver.find_element_by_id(ele_id).clear()
+        self.driver.find_element_by_id(ele_id).send_keys(value)
+        self.driver.implicitly_wait(10)
+        print("The date time is: ", self.driver.find_element_by_id(ele_id).get_attribute('value'))
   #=========================================================================================================================================
     #获取复选框
     def getCheckbox(self, checkbox_path):  # checkbox_path复选框的路径
@@ -321,6 +336,12 @@ class Page(object):
         # 接收
         # alert.accept()
         # self.driver.execute("acceptAlert")
+
+    #生成随机数
+    def getRandomNumber(self,count):
+        self.count = count
+        num = random.random()
+
 
 
         
