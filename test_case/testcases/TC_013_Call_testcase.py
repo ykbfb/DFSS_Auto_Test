@@ -40,7 +40,7 @@ class ServiceOrderTests(myunit.MyTest):
         call_page.close()
 
     #列表右键呼叫
-    def test_0002_rightCall(self):
+    def aa_test_0002_rightCall(self):
         self.user_login_verify()
         my_client = myClient(self.driver)
         my_client.gotoMyClientList_All(Data.lnk_moblie)
@@ -51,6 +51,33 @@ class ServiceOrderTests(myunit.MyTest):
         # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
         functions.insert_img(self.driver, current_time + "__chanl_result_approve_Director.png")
         call_page.close()
+
+    #列表呼叫
+    def aa_test_0003_listCall(self):
+        self.user_login_verify()
+        my_client = myClient(self.driver)
+        my_client.gotoMyClientList_All(Data.lnk_moblie)
+
+        call_page = CallDetailPage(self.driver)
+        call_page.callFromList()
+
+        # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__chanl_result_approve_Director.png")
+        call_page.close()
+
+    #列表呼叫
+    def test_0004_multCall(self):
+        self.user_login_verify()
+        my_client = myClient(self.driver)
+        my_client.gotoMyClientList_All(Data.lnk_moblie)
+
+        call_page = CallDetailPage(self.driver)
+        call_page.multCall()
+
+        # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__chanl_result_approve_Director.png")
+        call_page.close()
+
 
 
 if __name__ == '__main__':

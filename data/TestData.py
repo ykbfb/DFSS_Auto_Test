@@ -9,13 +9,13 @@ Created on 2018-01-04
 
 class Data:
 
-    lnk_moblie = '10000000071'
-    cmp_name = '需求书修改有限公司71'
+    lnk_moblie = '10000000072'
+    cmp_name = '需求书修改有限公司72'
 
     #合同打回、作废原因
     ctr_reject_memo = '自动化测试打回合同'
     ctr_discar_memo = '自动化测试作废合同'
-    ContractCode = 'WB05122017000322'
+    ContractCode = 'WB05122017000323'
 
     #意向单
     org_name = '平安普惠'

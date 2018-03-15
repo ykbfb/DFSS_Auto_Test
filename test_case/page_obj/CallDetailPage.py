@@ -55,11 +55,26 @@ class CallDetailPage(Page):
         self.setWaitTime(10)
         self.fillCalldetail()
 
-    rigth_call_loc = (By.ID,'contextMenuId_wh')
+    rigth_call_loc = (By.ID,'contextMenuId_wh')#列表右键【外呼】按钮
     def rigthClickCall(self):
         '''列表页右键外呼'''
         self.rightClick(self.clientCheckBox_loc)
         self.click_element(*self.rigth_call_loc)
         time.sleep(1)
         self.fillCalldetail()
+
+    call_btn_loc = (By.XPATH,'//*[@id="datagrid-row-r3-2-0"]/td[5]')#列表呼叫按钮
+    def callFromList(self):
+        '''列表页呼叫'''
+        self.click_element(*self.call_btn_loc)
+        time.sleep(1)
+        self.fillCalldetail()
+
+    multiple_call_loc = (By.ID,'operateItems_plwh') #批量呼叫按钮
+    def multCall(self):
+        '''批量呼叫'''
+        self.click_element(*self.multiple_call_loc)
+        time.sleep(1)
+        self.fillCalldetail()
+
 
