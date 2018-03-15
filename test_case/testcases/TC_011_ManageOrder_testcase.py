@@ -49,10 +49,8 @@ class ServiceOrderTests(myunit.MyTest):
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.moveToExpert(Data.cmp_name)
-        my_order.setWaitTime(2)
         # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
         functions.insert_img(self.driver, current_time + "__myOrder_movetoexpert.png")
-        my_order.setWaitTime(2)
         my_order.close()
 
     #【专家测评】转入【机构寻访】

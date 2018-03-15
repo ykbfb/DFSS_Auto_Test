@@ -59,7 +59,7 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.cmp_name_loc).clear()
         self.find_element(*self.cmp_name_loc).send_keys(cmp_name)
         self.find_element(*self.search_loc).click()
-        time.sleep(1)
+        time.sleep(2)
 
         '''接单页面确认'''
         self.find_element(*self.recive_order_loc).click()
@@ -92,6 +92,7 @@ class ServiceManageOrderPage(Page):
         self.setWaitTime(10)
         self.find_element(*self.clt_name_loc).clear()
         self.find_element(*self.clt_name_loc).send_keys(cmp_name)
+        time.sleep(1)
         self.find_element(*self.pre_search_loc).click()
         time.sleep(2)
         self.find_element(*self.movetoExpert_loc).click()
@@ -146,9 +147,10 @@ class ServiceManageOrderPage(Page):
     np_comfirm_loc = (By.XPATH,'//*[@id="layui-layer2"]/div[3]/a') #没有合适的产品
     add_more_prd_loc = (By.ID,'Add_More')#添加更多产品
     org_name_loc = (By.XPATH,'//*[@id="td_OrgName"]/span/input[1]')#机构名称
-    sel_org_loc = (By.ID,'_easyui_combobox_85')#下拉框选择机构
+    sel_org_loc = (By.ID,'_easyui_combobox_86')#下拉框选择机构
+    # sel_org_loc = (By.XPATH,'//id[contains(@id, "_easyui_combobox"')#下拉框选择机构
     prd_name_loc = (By.XPATH,'//*[@id="td_PrdName"]/span/input[1]')#产品名称
-    sel_prd_loc = (By.ID,'_easyui_combobox_275')#选择产品
+    sel_prd_loc = (By.ID,'_easyui_combobox_276')#选择产品
     add_prd_reason_loc = (By.ID,'addReason')#添加理由
     add_btn_loc = (By.ID,'btn_addMore')#添加按钮
     sel_credit_manager_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[1]/div/img')#展开信贷经理
@@ -187,10 +189,10 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.org_name_loc).send_keys(org_name)
         time.sleep(1)
         self.find_element(*self.sel_org_loc).click() #选择机构
-        time.sleep(2)
+        time.sleep(1)
         self.find_element(*self.prd_name_loc).clear()
         self.find_element(*self.prd_name_loc).send_keys(prd_name)
-        time.sleep(1)
+        time.sleep(2)
         self.find_element(*self.sel_prd_loc).click() #选择产品
         self.find_element(*self.add_prd_reason_loc).clear()
         self.find_element(*self.add_prd_reason_loc).send_keys('自动化测试--产品添加理由： are you ok')
@@ -423,7 +425,7 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.org_search_loc).click()
         time.sleep(1)
 
-        self.find_element(*self.dealwith_loc).click()
+        self.find_element(*self.dealwith_loc).click()#填写处理
         self.switchWindow()
         self.switchToOneFrameByXpath(self.org_deal_frame_loc)
         self.scrollToElement('id',self.moveto_deal_desc_loc)
@@ -434,14 +436,14 @@ class ServiceManageOrderPage(Page):
         time.sleep(2)
         self.close_alert()
         time.sleep(2)
-
         self.switchWindow()
         time.sleep(2)
         self.inputChanalResultDetail()
 
 #------------------------------------------------------------------------------------------------
     #放款喜报填写详情页
-    chanel_result_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
+    #chanel_result_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
+    chanel_result_frame_loc = '/html/body/div[4]/div[2]/iframe'
     loan_total_amt_loc = (By.ID,'LendingTotal')#放款额度
     loan_org_rate_loc = (By.ID,'txtOrgRate')#机构放款费率
     loan_rate_type_loc = 'sltOrgRateType'#利率类型

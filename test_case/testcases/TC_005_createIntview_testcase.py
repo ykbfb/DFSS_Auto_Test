@@ -50,7 +50,7 @@ class ContractTests(myunit.MyTest):
         intview_page = NewIntviewPage(self.driver)
         intview_page.createIntview_DC()
         # self.assertEqual(my_client.search_by_fuzzy(),'大坤哥自动化')
-        functions.insert_img(self.driver, current_time + "__createIntview.png")
+        functions.insert_img(self.driver, current_time + "__createDCIntview.png")
         my_client.close()
 
     # 修改邀约
@@ -63,7 +63,7 @@ class ContractTests(myunit.MyTest):
         intview_page = NewIntviewPage(self.driver)
         intview_page.modifyIntview()
         # self.assertEqual(my_client.search_by_fuzzy(),'大坤哥自动化')
-        functions.insert_img(self.driver, current_time + "__createIntview.png")
+        functions.insert_img(self.driver, current_time + "__modifyIntview.png")
         my_client.close()
 
 

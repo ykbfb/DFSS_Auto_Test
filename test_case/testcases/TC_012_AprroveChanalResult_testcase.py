@@ -55,3 +55,6 @@ class ServiceOrderTests(myunit.MyTest):
         # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司)
         functions.insert_img(self.driver, current_time + "__chanl_result_approve_DataManager.png")
         chan_appr_page.close()
+
+if __name__ == '__main__':
+    unittest.main()

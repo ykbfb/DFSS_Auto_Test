@@ -261,7 +261,8 @@ class myClient(Page):
         self.moveToX(800, 300)
         self.selectClient()
         time.sleep(1)
-#修改联系人公共方法
+
+    #修改联系人公共方法
     def modifyLnkMan(self,name,duty,role,extent,email):
         self.name = name
         self.duty = duty

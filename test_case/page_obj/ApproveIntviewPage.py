@@ -38,10 +38,10 @@ class ApproveIntviewPage(Page):
         self.click_element(*self.intview_nav_loc)
         self.click_element(*self.intview_appv_menu_loc)
         self.setWaitTime(20)
-        time.sleep(2)
+        time.sleep(1)
         self.switchToOneFrameByXpath(self.intview_list_frame_loc)
         self.click_element(*self.intview_status_loc)
-        time.sleep(2)
+        time.sleep(1)
         self.click_element(*self.need_appv_loc)
 
 #================================================================================
@@ -58,7 +58,7 @@ class ApproveIntviewPage(Page):
 # ============================================================================================
     intview_DC_loc = 'btnDoubleCalling'
     intview_DC_btn_loc = (By.ID,'btnDoubleCalling')#DC按钮
-    pop_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe7')]"
+    pop_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     DC_success_loc = (By.ID,'doubleCalling')#DC成功
     DC_memo_loc = (By.ID,'txtDoubleCallingMemo')#DC备注
     DC_save_loc = (By.XPATH,'//*[@id="divSupplyCall"]/input[2]')#保存DC结果
@@ -67,9 +67,9 @@ class ApproveIntviewPage(Page):
     def intview_DC(self):
         '''DC邀约'''
         self.gotoNeedApproveList()
-        self.scrollToElement('xpath',self.intview_DC_loc)
+        self.scrollToElement('id',self.intview_DC_loc)
         self.click_element(*self.intview_DC_btn_loc)
-        time.sleep(2)
+        time.sleep(1)
         self.switchWindow()
         self.switchToOneFrameByXpath(self.pop_frame_loc)
         self.click_element(*self.DC_success_loc)

@@ -63,6 +63,8 @@ class ArchiveContractPage(Page):
         self.find_element(*self.archive_btn_loc).click()
         time.sleep(2)
         self.close_alert()
+        time.sleep(1)
+        self.close_alert()
 
     #个人名义签订
     def archiveContractForPerson(self):

@@ -47,7 +47,7 @@ if __name__ == '__main__':
     k = 1
     while k < 2:
         timing = time.strftime('%H:%M', time.localtime(time.time()))
-        if timing == '15:58':  # 17_35指17:35,这个可以根据需要设定时间
+        if timing == '18:43':  # 17_35指17:35,这个可以根据需要设定时间
             print('start to run scripts')
             runner.run(discover)  # 运行所有的case
             print('Finish runing scripts')

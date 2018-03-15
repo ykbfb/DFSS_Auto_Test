@@ -12,8 +12,8 @@ sys.path.append("./model")
 sys.path.append("./page_obj")
 from test_case.models import myunit, functions
 from test_case.page_obj.loginPage import login
-from test_case.page_obj.ApproveIntviewPage import ApproveIntviewPage
-from test_case.page_obj.base import *
+from test_case.page_obj.myClientsPage import myClient
+from test_case.page_obj.CallDetailPage import CallDetailPage
 from data.TestData import Data
 import time
 
@@ -23,25 +23,35 @@ class ServiceOrderTests(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username="wangweiwei", password="123456", city="suzhou"):
+    def user_login_verify(self, username="yanfang", password="123456", city="suzhou"):
         login(self.driver).user_login(username, password, city)
 
-    #邀约审批
-    def test_0001_ApproveIntview(self):
-        self.user_login_verify(username="wangweiwei", password="123456", city="suzhou")
-        intview_appr_page = ApproveIntviewPage(self.driver)
-        intview_appr_page.approveIntview()
+    #呼叫保存
+    def aa_test_0001_call(self):
+        self.user_login_verify()
+        my_client = myClient(self.driver)
+        my_client.gotoMyClientList_All(Data.lnk_moblie)
+
+        call_page = CallDetailPage(self.driver)
+        call_page.callClient()
 
         # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
         functions.insert_img(self.driver, current_time + "__chanl_result_approve_Director.png")
-        intview_appr_page.close()
+        call_page.close()
 
-    #邀约DC
-    def aa_test_0002_ApproveIntview(self):
-        self.user_login_verify(username="wangweiwei", password="123456", city="suzhou")
-        intview_appr_page = ApproveIntviewPage(self.driver)
-        intview_appr_page.intview_DC()
+    #列表右键呼叫
+    def test_0002_rightCall(self):
+        self.user_login_verify()
+        my_client = myClient(self.driver)
+        my_client.gotoMyClientList_All(Data.lnk_moblie)
+
+        call_page = CallDetailPage(self.driver)
+        call_page.rigthClickCall()
 
         # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
         functions.insert_img(self.driver, current_time + "__chanl_result_approve_Director.png")
-        intview_appr_page.close()
+        call_page.close()
+
+
+if __name__ == '__main__':
+    unittest.main()

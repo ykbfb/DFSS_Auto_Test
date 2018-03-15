@@ -129,14 +129,14 @@ class Page(object):
 
     #切换窗口
     def switchWindow(self):
-        #获取当前窗口句柄
-        current_window = self.driver.current_window_handle
-        all_handles = self.driver.window_handles 
+        current_window = self.driver.current_window_handle #获取当前窗口句柄
+        all_handles = self.driver.window_handles #获取所有窗口句柄
             
-        for handle in all_handles:
+        for handle in all_handles: #切换到新打开的窗口
             if handle != current_window:
                 self.driver.switch_to.window(handle)
                 print('get current window')
+
     # 返回当前窗口
     def switchToCurrentWindow(self):
         current_window = self.driver.current_window_handle

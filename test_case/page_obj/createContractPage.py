@@ -130,6 +130,7 @@ class NewContractPage(Page):
     def createVIPContract(self):
         self.clickContractTab()
         self.openNewContractPage()
+        time.sleep(1)
         self.inputContractDetail_VIP()
         self.selectContractName()
         self.selectConStartDate()
@@ -144,6 +145,7 @@ class NewContractPage(Page):
     def createBPOContract(self):
         self.clickContractTab()
         self.openNewContractPage()
+        time.sleep(1)
         self.inputContractDetail_BPO()
         self.selectContractName()
         self.selectConStartDate()
