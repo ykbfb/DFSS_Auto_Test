@@ -77,4 +77,12 @@ class CallDetailPage(Page):
         time.sleep(1)
         self.fillCalldetail()
 
-
+#==========================================================================================
+#打开呼叫页面公共方法
+#==========================================================================================
+    def openCallDetailPage(self):
+        self.doubleClick('xpath',self.clientCheckBox_loc)
+        time.sleep(2)
+        self.switchToCurrentWindow()
+        time.sleep(1)
+        self.switchToOneFrameByXpath(self.callDetail_frame_loc)

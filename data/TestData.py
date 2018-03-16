@@ -6,6 +6,7 @@
 Created on 2018-01-04
 @author: Administrator
 '''
+import random
 
 class Data:
 
@@ -25,3 +26,8 @@ class Data:
     #融资喜报审批
     chanl_clt_name = '需求书修改有限公司'
     fin_clt_name = 'AAC16110700195有限公司'
+
+    #客户释放公海
+    share_phone1 = random.randint(10000000000, 19999999999)
+    share_phone2 = random.randint(10000000000, 19999999999)
+    share_phone3 = random.randint(10000000000, 19999999999)

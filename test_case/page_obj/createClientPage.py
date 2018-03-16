@@ -16,9 +16,12 @@
 
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
+
+from data.TestData import Data
 from .base import Page
 from .loginPage import login
-from time import sleep
+import time
+
 
 
 class createClient(Page):
@@ -67,6 +70,22 @@ class createClient(Page):
     def switchToDefaultContent(self):
         self.switchToDefaultContent()
 
+
+    #============================================================================================== 
+    #创建客户
+    def createNewClient(self,phone): #phone 新建客户手机号
+        self.phone = phone
+        self.open_rapidOperation()
+        self.setWaitTime(10)
+        self.open_newClient()
+        self.switchToNewClientFrame()
+        self.inputMobile(phone)
+        self.checkMobileIsDuplicate()
+        self.selectCltExeStatus()
+        self.selectLoanArea()
+        self.saveClient()
+        time.sleep(2)
+        # self.close_alert()
 
     # --===========================================================================================
     # 验证case的执行结果

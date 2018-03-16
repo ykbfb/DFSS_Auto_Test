@@ -27,7 +27,7 @@ class ServiceOrderTests(myunit.MyTest):
         login(self.driver).user_login(username, password, city)
 
     # 融服接单订单
-    def aa_test_0001_acceptOrder(self):
+    def test_0001_acceptOrder(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -42,7 +42,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #【待处理】转入【专家测评】
     #@unittest.Myskip #如果上一个case执行失败，则跳过次case
-    def aa_test_0002_moveToExpert(self):
+    def test_0002_moveToExpert(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -55,7 +55,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #【专家测评】转入【机构寻访】
     #@unittest.Myskip
-    def aa_test_0003_moveToAgency(self):
+    def test_0003_moveToAgency(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -70,7 +70,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #创建意向单
     #@unittest.Myskip
-    def aa_test_0004_createAimOrder(self):
+    def test_0004_createAimOrder(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -85,7 +85,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #创建子订单
     #@unittest.Myskip
-    def aa_test_0005_createSubOrder(self):
+    def test_0005_createSubOrder(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -100,7 +100,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #子订单【贷前辅导】转入【机构审批】
     #@unittest.Myskip
-    def aa_test_0006_moveSubOrderToOrgApproval(self):
+    def test_0006_moveSubOrderToOrgApproval(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -115,7 +115,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #【机构审批】--信贷经理评价
     #@unittest.Myskip
-    def aa_test_0007_estimateCreditManager(self):
+    def test_0007_estimateCreditManager(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -130,7 +130,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #【机构审批】--机构审批：不通过
     #@unittest.Myskip
-    def aa_test_0008_OrgApproveNotPass(self):
+    def test_0008_OrgApproveNotPass(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
@@ -145,7 +145,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #【机构审批】--机构审批： 通过
     #@unittest.Myskip
-    def aa_test_0009_OrgApprovePass(self):
+    def test_0009_OrgApprovePass(self):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
