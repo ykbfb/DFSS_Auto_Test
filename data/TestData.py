@@ -31,3 +31,7 @@ class Data:
     share_phone1 = random.randint(10000000000, 19999999999)
     share_phone2 = random.randint(10000000000, 19999999999)
     share_phone3 = random.randint(10000000000, 19999999999)
+
+    #删除客户
+    delete_phone1 = random.randint(10000000000, 19999999999)
+    delete_phone2 = random.randint(10000000000, 19999999999)
