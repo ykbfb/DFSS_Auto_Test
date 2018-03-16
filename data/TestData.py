@@ -35,3 +35,6 @@ class Data:
     #删除客户
     delete_phone1 = random.randint(10000000000, 19999999999)
     delete_phone2 = random.randint(10000000000, 19999999999)
+
+    #划转至大项目部
+    move_client_phone = random.randint(10000000000, 19999999999)

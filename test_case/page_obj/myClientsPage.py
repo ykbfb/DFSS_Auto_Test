@@ -279,6 +279,25 @@ class myClient(Page):
         self.inputLnkExtent(extent)
         self.inputLnkEmail(email)
         self.saveLnkManDetail()
+
+    #划转至大项目部
+    move_bigproj_loc = (By.ID,'operateItems_hzzdxmb')#划转至大项目部
+    pop_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
+    select_emp_loc = 'sltEmployee'#接收人员
+    move_memo_loc = (By.ID,'txtRemark')#划转备注
+    save_btn_loc = (By.ID,'btnSave')#保存
+
+    def moveClientToBigProject(self):
+        self.click_element(*self.move_bigproj_loc)
+        time.sleep(1)
+        self.switchWindow()
+        self.switchToOneFrameByXpath(self.pop_frame_loc)
+        self.getDropdownMenuById(self.select_emp_loc,1)
+        self.input_value(self.move_memo_loc,'自动化测试：客户划转至大客户项目部')
+        self.click_element(*self.save_btn_loc)
+        time.sleep(1)
+        self.close_alert()
+
  #============================================================================================
     #验证case的执行结果    
     user_login_success_loc = (By.XPATH,'//*[@id="Main_Page"]/div[1]/div/div/span[2]/label') 
