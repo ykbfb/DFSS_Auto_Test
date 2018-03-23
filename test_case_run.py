@@ -43,20 +43,20 @@ if __name__ == '__main__':
                             description='环境：window 7 浏览器： Chrome')
     discover = unittest.defaultTestLoader.discover('./test_case/testcases',pattern = '*_testcase.py')
     #================================================================================================================
-    #定时跑case111
-    k = 1
-    while k < 2:
-        timing = time.strftime('%H:%M', time.localtime(time.time()))
-        if timing == '18:54':  # 17_35指17:35,这个可以根据需要设定时间
-            print('start to run scripts')
-            runner.run(discover)  # 运行所有的case
-            print('Finish runing scripts')
-            break
-        else:
-            time.sleep(3)
-            print(timing)
+    #定时跑case
+    # k = 1
+    # while k < 2:
+    #     timing = time.strftime('%H:%M', time.localtime(time.time()))
+    #     if timing == '10:35':  # 17_35指17:35,这个可以根据需要设定时间
+    #         print('start to run scripts')
+    #         runner.run(discover)  # 运行所有的case
+    #         print('Finish runing scripts')
+    #         break
+    #     else:
+    #         time.sleep(3)
+    #         print(timing)
     #==================================================================================================================
-    # runner.run(discover)
+    runner.run(discover)
     fp.close()
     file_path = new_report('./report/')
     send_email(file_path)

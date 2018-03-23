@@ -10,13 +10,13 @@ import random
 
 class Data:
 
-    lnk_moblie = '10000000072'
-    cmp_name = '需求书修改有限公司72'
+    lnk_moblie = '10000000076'
+    cmp_name = '需求书修改有限公司76'
 
     #合同打回、作废原因
     ctr_reject_memo = '自动化测试打回合同'
     ctr_discar_memo = '自动化测试作废合同'
-    ContractCode = 'WB05122017000323'
+    ContractCode = 'WB05122017000329'
 
     #意向单
     org_name = '平安普惠'
