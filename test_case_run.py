@@ -41,7 +41,7 @@ if __name__ == '__main__':
     runner = HTMLTestRunner(stream=fp,
                             title='融管系统自动化测试报告',
                             description='环境：window 7 浏览器： Chrome')
-    discover = unittest.defaultTestLoader.discover('./test_case/testcases',pattern = '*_testcase.py')
+    discover = unittest.defaultTestLoader.discover('./test_case/testcases',pattern = '*_testcase1.py')
     #================================================================================================================
     #定时跑case
     # k = 1

@@ -10,13 +10,16 @@ import random
 
 class Data:
 
-    lnk_moblie = '10000000076'
-    cmp_name = '需求书修改有限公司76'
+    sales = 'yanfang'  #融资顾问
+    sales_manager= 'wangweiwei' #销售经理
+
+    lnk_moblie = '10000000092'
+    cmp_name = '需求书修改有限公司92'
 
     #合同打回、作废原因
     ctr_reject_memo = '自动化测试打回合同'
     ctr_discar_memo = '自动化测试作废合同'
-    ContractCode = 'WB05122017000329'
+    ContractCode = 'HY05122018001020'
 
     #意向单
     org_name = '平安普惠'
@@ -24,8 +27,8 @@ class Data:
     credit_manager = '张安林'
 
     #融资喜报审批
-    chanl_clt_name = '需求书修改有限公司'
-    fin_clt_name = 'AAC16110700195有限公司'
+    chanl_clt_name = '需求书修改有限公司92'
+    fin_clt_name = '需求书修改有限公司92'
 
     #客户释放公海
     share_phone1 = random.randint(10000000000, 19999999999)
