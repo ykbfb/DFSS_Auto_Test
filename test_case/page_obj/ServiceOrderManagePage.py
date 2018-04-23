@@ -46,6 +46,7 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.order_nav_loc).click()
         self.setWaitTime(10)
         self.find_element(*self.my_order_loc).click()
+        time.sleep(2)
         self.switchToDefaultContent()
         self.switchToOneFrameByXpath(self.order_list_frame_loc)
 
@@ -89,7 +90,7 @@ class ServiceManageOrderPage(Page):
         self.cmp_name = cmp_name
         self.gotoMyOrder()
         self.find_element(*self.pre_loan_inv_loc).click()
-        self.setWaitTime(10)
+        time.sleep(1)
         self.find_element(*self.clt_name_loc).clear()
         self.find_element(*self.clt_name_loc).send_keys(cmp_name)
         time.sleep(1)
@@ -118,12 +119,12 @@ class ServiceManageOrderPage(Page):
     def moveToAgencySearch(self,cmp_name):
         self.cmp_name = cmp_name
         self.gotoMyOrder()
-        time.sleep(2)
+        time.sleep(1)
         self.find_element(*self.exprt_tab_loc).click()
         time.sleep(1)
         self.find_element(*self.expert_clt_name_loc).clear()
         self.find_element(*self.expert_clt_name_loc).send_keys(cmp_name)
-        time.sleep(3)
+        time.sleep(2)
         self.find_element(*self.exprt_search_loc).click()
         time.sleep(1)
         self.find_element(*self.moveToAgency_loc).click()
@@ -166,8 +167,7 @@ class ServiceManageOrderPage(Page):
         self.gotoMyOrder()
         time.sleep(1)
         self.find_element(*self.agency_tab_loc).click()
-        self.setWaitTime(10)
-        time.sleep(1)
+        time.sleep(2)
         self.find_element(*self.agen_clt_name_loc).clear()
         self.find_element(*self.agen_clt_name_loc).send_keys(cmp_name)
         self.find_element(*self.agen_search_loc).click()
@@ -177,9 +177,9 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.agen_evalu_loc).click()
         self.switchWindow()
         self.switchToOneFrameByXpath(self.agen_pop_iframe_loc)
-        time.sleep(1)
+        time.sleep(2)
         self.find_element(*self.np_comfirm_loc).click()
-        time.sleep(1)
+        time.sleep(2)
         self.switchWindow()
 
         '''添加更多产品'''
@@ -435,15 +435,18 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.org_deal_submit_loc).click()
         time.sleep(2)
         self.close_alert()
-        time.sleep(2)
+        time.sleep(5)
         self.switchWindow()
+        # self.switchToCurrentWindow()
+        # self.switchToSecondWindow()
         time.sleep(2)
+        self.switchToDefaultContent()
         self.inputChanalResultDetail()
 
 #------------------------------------------------------------------------------------------------
     #放款喜报填写详情页
-    #chanel_result_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
-    chanel_result_frame_loc = '/html/body/div[4]/div[2]/iframe'
+    chanel_result_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
+    # chanel_result_frame_loc = '/html/body/div[4]/div[2]/iframe'
     loan_total_amt_loc = (By.ID,'LendingTotal')#放款额度
     loan_org_rate_loc = (By.ID,'txtOrgRate')#机构放款费率
     loan_rate_type_loc = 'sltOrgRateType'#利率类型
@@ -459,6 +462,7 @@ class ServiceManageOrderPage(Page):
     loan_confirm_loc = (By.CLASS_NAME,'layui-layer-btn0')#确认无误
 
     def inputChanalResultDetail(self):
+        time.sleep(10)
         self.switchToOneFrameByXpath(self.chanel_result_frame_loc)
         self.setWaitTime(10)
         self.find_element(*self.loan_total_amt_loc).clear()

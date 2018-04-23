@@ -232,11 +232,82 @@ class RefundTests(myunit.MyTest):
         refund.close()
 
     #紧急退费终审--分公司财务
-    def test_20_finalApproveUrgencyRefund_Finance(self):
+    def cc_test_20_finalApproveUrgencyRefund_Finance(self):
         self.user_login_verify(username='sunquan',password='123456',city='suzhou')
 
         refund = RefundPage(self.driver)
         refund.final_ApproveUrgencyRefund_Finance(Data.cmp_name)
+        #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
+        refund.close()
+
+#=====================================================================================================================================
+    #强制退费创建--客服专员
+    def dd_test_21_createForceRefund_CustomerService(self):
+        self.user_login_verify(username='chenxiang5134',password='123456',city='shanghai')
+
+        refund = RefundPage(self.driver)
+        refund.createForceRefund(Data.force_clt_name)
+        #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
+        refund.close()
+
+    #强制退费审批--客服专员
+    def dd_test_22_approveForceRefund_CustomerService(self):
+        self.user_login_verify(username='chenxiang5134',password='123456',city='shanghai')
+
+        refund = RefundPage(self.driver)
+        refund.approveForceRefund_CustomerScevice(Data.force_clt_name)
+        #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
+        refund.close()
+
+    #强制退费审批--客服总监
+    def aa_test_23_approveForceRefund_CustomerService(self):
+        self.user_login_verify(username='liujianlin',password='123456',city='shanghai')
+
+        refund = RefundPage(self.driver)
+        refund.approveForceRefund_ServiceDirector(Data.force_clt_name)
+        #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
+        refund.close()
+
+    #强制退费审批--分公司财务
+    def aa_test_24_approveForceRefund_CustomerService(self):
+        self.user_login_verify(username='sunquan',password='123456',city='suzhou')
+
+        refund = RefundPage(self.driver)
+        refund.approveForceRefund_Finance(Data.force_clt_name)
+        #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
+        refund.close()
+
+    #强制退费审批--分公司财务
+    def aa_test_25_approveForceRefund_Accountant(self):
+        self.user_login_verify(username='duanxuesa',password='123456',city='shanghai')
+
+        refund = RefundPage(self.driver)
+        refund.approveForceRefund_Accountant(Data.force_clt_name)
+        #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
+        refund.close()
+
+    #强制退费审批--CFO
+    def aa_test_26_approveForceRefund_CFO(self):
+        self.user_login_verify(username='lingju',password='123456',city='shanghai')
+
+        refund = RefundPage(self.driver)
+        refund.approveForceRefund_CFO(Data.force_clt_name)
+        #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
+        functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
+        refund.close()
+
+    #强制退费审批--总部付款出纳
+    def test_27_approveForceRefund_Cashier(self):
+        self.user_login_verify(username='yangshuai',password='123456',city='shanghai')
+
+        refund = RefundPage(self.driver)
+        refund.approveForceRefund_Cashier(Data.force_clt_name)
         #self.assertEqual(my_client.search_by_fuzzy(), '需求书修改有限公司')
         functions.insert_img(self.driver, current_time + "__myClient_orderCreateCMP.png")
         refund.close()

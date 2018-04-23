@@ -2,7 +2,7 @@ import random
 
 def getRadom():
     # num = [random.randint(1000000, 9999999) for _ in range(1)]
-    num = random.randint(1000000, 9999999)
+    num = random.randint(0, 15)
     print(num)
 
 def guess():
@@ -20,5 +20,5 @@ def guess():
 
 
 if __name__ == '__main__':
-    # getRadom()
-    guess()
+    getRadom()
+    # guess()

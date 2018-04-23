@@ -13,13 +13,13 @@ class Data:
     sales = 'yanfang'  #融资顾问
     sales_manager= 'wangweiwei' #销售经理
 
-    lnk_moblie = '10000000092'
-    cmp_name = '需求书修改有限公司92'
+    lnk_moblie = '18616722422'
+    cmp_name = '需求书修改有限公司124'
 
     #合同打回、作废原因
     ctr_reject_memo = '自动化测试打回合同'
     ctr_discar_memo = '自动化测试作废合同'
-    ContractCode = 'HY05122018001020'
+    ContractCode = 'WB05122017000332'
 
     #意向单
     org_name = '平安普惠'
@@ -41,3 +41,6 @@ class Data:
 
     #划转至大项目部
     move_client_phone = random.randint(10000000000, 19999999999)
+
+    #强制退费
+    force_clt_name = '需求书修改有限公司106'

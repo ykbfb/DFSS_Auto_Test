@@ -34,14 +34,14 @@ class ArchiveContractPage(Page):
         self.find_element(*self.finc_nav_loc).click()
         self.find_element(*self.contract_achiv_menu_loc).click()
         self.setWaitTime(10)
-        time.sleep(2)
+        time.sleep(1)
         self.switchFrame(self.contract_frame_loc,self.contract_list_frame_loc)
         self.find_element(*self.need_achiv_loc).click()
 
         self.find_element(*self.contractName_loc).clear()
         self.find_element(*self.contractName_loc).send_keys(contract_name)
         self.find_element(*self.search_loc).click()
-        time.sleep(2)
+        time.sleep(1)
 
 
     #合同归档
@@ -53,7 +53,8 @@ class ArchiveContractPage(Page):
     archive_btn = 'btnGui'
 
     #公司名义签订
-    def archiveContractForCMP(self):
+    def archiveContractForCMP_VIP(self):
+        '''会员合同归档'''
         self.find_element(*self.radio_loc).click()
         self.find_element(*self.archive_loc).click()
         self.switchWindow()
@@ -61,13 +62,27 @@ class ArchiveContractPage(Page):
         self.find_element(*self.signForCompany_loc).click()
         self.scrollToElement('id',self.archive_btn)
         self.find_element(*self.archive_btn_loc).click()
-        time.sleep(2)
+        time.sleep(1)
+        self.close_alert()
+
+    def archiveContractForCMP_BPO(self):
+        '''外包合同归档'''
+        self.find_element(*self.radio_loc).click()
+        self.find_element(*self.archive_loc).click()
+        self.switchWindow()
+        time.sleep(1)
+        self.find_element(*self.signForCompany_loc).click()
+        self.scrollToElement('id',self.archive_btn)
+        self.find_element(*self.archive_btn_loc).click()
+        time.sleep(1)
         self.close_alert()
         time.sleep(1)
         self.close_alert()
 
+#--------------------------------------------------------------------------------------------------
     #个人名义签订
-    def archiveContractForPerson(self):
+    def archiveContractForPerson_VIP(self):
+        '''会员合同归档'''
         self.find_element(*self.radio_loc).click()
         self.find_element(*self.archive_loc).click()
         self.switchWindow()
@@ -75,6 +90,20 @@ class ArchiveContractPage(Page):
         self.find_element(*self.signForPerson_loc).click()
         self.scrollToElement('id',self.archive_btn)
         self.find_element(*self.archive_btn_loc).click()
+        time.sleep(2)
+        self.close_alert()
+
+    def archiveContractForPerson_BPO(self):
+        '''外包合同归档'''
+        self.find_element(*self.radio_loc).click()
+        self.find_element(*self.archive_loc).click()
+        self.switchWindow()
+        time.sleep(1)
+        self.find_element(*self.signForPerson_loc).click()
+        self.scrollToElement('id',self.archive_btn)
+        self.find_element(*self.archive_btn_loc).click()
+        time.sleep(2)
+        self.close_alert()
         time.sleep(2)
         self.close_alert()
 

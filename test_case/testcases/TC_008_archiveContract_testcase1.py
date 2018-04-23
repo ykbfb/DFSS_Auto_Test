@@ -31,7 +31,9 @@ class ArchiveContractTests(myunit.MyTest):
         self.user_login_verify()
         arc_contract = ArchiveContractPage(self.driver)
         arc_contract.gotoNeedAchiveList(Data.cmp_name)
-        arc_contract.archiveContractForCMP()
+        # arc_contract.archiveContractForCMP_VIP() #会员合同归档
+        arc_contract.archiveContractForCMP_BPO() #外包合同归档
+
         # self.assertEqual(my_client.search_by_fuzzy(),'大坤哥自动化')
         functions.insert_img(self.driver, current_time + "__archiveContractForCMP.png")
         arc_contract.setWaitTime(2)
@@ -42,7 +44,9 @@ class ArchiveContractTests(myunit.MyTest):
         self.user_login_verify()
         arc_contract = ArchiveContractPage(self.driver)
         arc_contract.gotoNeedAchiveList(Data.cmp_name)
-        arc_contract.archiveContractForPerson()
+        arc_contract.archiveContractForPerson_VIP() #会员合同归档
+        #arc_contract.archiveContractForPerson_BPO() #外包合同归档
+
         # self.assertEqual(my_client.search_by_fuzzy(),'大坤哥自动化')
         functions.insert_img(self.driver, current_time + "__archiveContractForPerson.png")
         arc_contract.setWaitTime(2)

@@ -23,7 +23,7 @@ class OrderTests(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username="yanfang", password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.sales, password="123456", city="suzhou"):
         login(self.driver).user_login(username, password, city)
 
     # 创建企业主、个体户订单

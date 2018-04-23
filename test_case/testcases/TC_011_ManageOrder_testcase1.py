@@ -40,7 +40,7 @@ class ServiceOrderTests(myunit.MyTest):
         my_order.setWaitTime(2)
         my_order.close()
 
-    #【待处理】转入【专家测评】
+    #【贷前调查】转入【专家测评】
     #@unittest.Myskip #如果上一个case执行失败，则跳过次case
     def test_0002_moveToExpert(self):
         self.user_login_verify()

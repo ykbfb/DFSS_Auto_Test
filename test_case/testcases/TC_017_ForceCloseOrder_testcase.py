@@ -12,13 +12,12 @@ sys.path.append("./model")
 sys.path.append("./page_obj")
 from test_case.models import myunit, functions
 from test_case.page_obj.loginPage import login
-from test_case.page_obj.ApproveChannelResultPage import ChannalResultApprovalPage
 from test_case.page_obj.ForceCloseOrderPage import ForceCloseOrderPage
 from data.TestData import Data
 import time
 
 
-class ServiceOrderTests(myunit.MyTest):
+class ForceCloseOrderTests(myunit.MyTest):
     global current_time
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 

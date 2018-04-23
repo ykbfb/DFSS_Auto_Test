@@ -4,7 +4,7 @@
 '''
 Created on 2017-09-05
 
-@author: Kyn Yang
+@author: Kun Yang
 '''
 
 #from selenium.webdriver import Remote

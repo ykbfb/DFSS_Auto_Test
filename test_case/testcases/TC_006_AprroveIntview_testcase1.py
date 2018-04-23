@@ -23,12 +23,12 @@ class ServiceOrderTests(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username="wangweiwei", password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.sales_manager, password="123456", city="suzhou"):
         login(self.driver).user_login(username, password, city)
 
     #邀约审批
     def test_0001_ApproveIntview(self):
-        self.user_login_verify(username="wangweiwei", password="123456", city="suzhou")
+        self.user_login_verify()
         intview_appr_page = ApproveIntviewPage(self.driver)
         intview_appr_page.approveIntview()
 
@@ -38,7 +38,7 @@ class ServiceOrderTests(myunit.MyTest):
 
     #邀约DC
     def aa_test_0002_ApproveIntview(self):
-        self.user_login_verify(username="wangweiwei", password="123456", city="suzhou")
+        self.user_login_verify()
         intview_appr_page = ApproveIntviewPage(self.driver)
         intview_appr_page.intview_DC()
 

@@ -48,6 +48,7 @@ class ApproveIntviewPage(Page):
     def approveIntview(self):
         '''邀约审批'''
         self.gotoNeedApproveList()
+        time.sleep(2)
         self.click_element(*self.intview_appv_btn_loc)
         self.switchWindow()
         self.input_value(self.intview_appr_memo_loc,'自动化测试：邀约审批')

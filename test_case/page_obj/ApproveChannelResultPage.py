@@ -26,7 +26,7 @@ import time
 class ChannalResultApprovalPage(Page):
     #融资订单管理
     loanmanage_nav_loc = (By.XPATH,'//*[@id="wnav"]/div[2]/div[1]/div[1]') #融资管理
-    channalresult_appr_loc = (By.XPATH,'//*[@id="wnav"]/div[2]/div[2]/ul/li[5]/div/a/span[2]')#融资喜报审批
+    channalresult_appr_loc = (By.XPATH,'//*[@id="wnav"]/div[2]/div[2]/ul/li[6]/div/a/span[2]')#融资喜报审批
     chan_frame_loc = '//*[@id="tabs"]/div[2]/div[2]/div/iframe'
     channalresult_cmpname_loc = (By.ID,'querycode')#按客户名称、联系人姓名
     chan_search_loc = (By.ID,'Button4')

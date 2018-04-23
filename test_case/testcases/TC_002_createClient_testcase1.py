@@ -23,11 +23,11 @@ class createNewClient(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username="yanfang", password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.sales, password="123456", city="suzhou"):
         login(self.driver).user_login(username, password, city)
 
     # 测试创建客户-电话号码已经存在
-    def test_1_verify_mobileNo_isExist(self):
+    def aa_test_1_verify_mobileNo_isExist(self):
         self.user_login_verify()
         new_client = createClient(self.driver)
         new_client.setWaitTime(2)

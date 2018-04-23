@@ -52,7 +52,6 @@ class Page(object):
     def click_element(self,*loc):
         self.find_element(*loc).click()
 
-    
     def open(self):
         self._open(self.url)
         
@@ -127,6 +126,14 @@ class Page(object):
     def maxWindow(self):
         self.driver.maximize_window()
 
+    #用JavaScript实现弹窗最大化
+    def maxWindowByJs(self):
+        src = 'function openwin_full(url) {var scrWidth=screen.availWidth;' \
+              'var scrHeight=screen.availHeight;' \
+              ' var self=window.open(url,"PowerBOS","resizable=1");' \
+              'self.moveTo(0,0);self.resizeTo(scrWidth,scrHeight);}'
+        self.script(src)
+
     #切换窗口
     def switchWindow(self):
         current_window = self.driver.current_window_handle #获取当前窗口句柄
@@ -149,6 +156,13 @@ class Page(object):
         #         current_win = driver.current_window_handle#返回当前窗口
         all_win = self.driver.window_handles  # 返回所有窗口
         self.driver.switch_to.window(all_win[0])
+        print('has return to last window')
+
+    # 返回当前窗口的上一个窗口
+    def switchToSecondWindow(self):
+        #         current_win = driver.current_window_handle#返回当前窗口
+        all_win = self.driver.window_handles  # 返回所有窗口
+        self.driver.switch_to.window(all_win[2])
         print('has return to last window')
 
 #==========================================================================================================================

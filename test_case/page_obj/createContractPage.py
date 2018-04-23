@@ -57,10 +57,11 @@ class NewContractPage(Page):
     contract_name_loc = 'selType'
     def selectContractName(self,index=0):
         self.index = index
-        self.getDropdownMenuById(self.contract_code_loc, index)
+        self.getDropdownMenuById(self.contract_name_loc, index)
 
     #预估额度
     predit_loanAmt_loc = (By.ID,'txtPreditAmount')
+    moveTo_predit_loanAmt_loc =  'txtPreditAmount'
     def inputPreLoanAmt(self,value=100):
         self.value = value
         self.find_element(*self.predit_loanAmt_loc).clear()
@@ -81,6 +82,7 @@ class NewContractPage(Page):
 
     #备注
     contract_memo_loc = (By.ID,'txtMemo')
+    moveTo_contract_memo_loc = 'txtMemo'
     def inputContractMo(self,value='测试创建新合同!'):
         self.value = value
         self.find_element(*self.contract_memo_loc).clear()
@@ -112,15 +114,18 @@ class NewContractPage(Page):
         self.find_element(*self.save_loc).click()
 
 #=============================================================================================================================================
-#====转会员
+#转会员
     popWinMax_loc = (By.XPATH,'//*[@id="layui-layer3"]/span[1]/a[2]')
     change_VIPContract_loc = (By.PARTIAL_LINK_TEXT,"转会员") #转会员按钮
+    pop_new_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     def openChangeToVIPContract(self):
         self.find_element(*self.newContract_loc).click()
+        time.sleep(1)
         self.find_element(*self.change_VIPContract_loc).click()
         self.switchWindow()
-        # self.find_element(*self.popWinMax_loc).click()
-        # self.switchToOneFrameByXpath(self.contract_frame_loc)
+        # self.maxWindowByJs()
+        time.sleep(1)
+        self.switchToOneFrameByXpath(self.pop_new_frame_loc)
 
 
 #==============================================================================================================================================
@@ -156,15 +161,17 @@ class NewContractPage(Page):
         self.submitContract()
         time.sleep(3)
         self.close_alert()
+        time.sleep(1)
+        self.close_alert()
 
 
     # 外包合同转会员
     def BPOContractTransToVIP(self):
         self.clickContractTab()
         self.openChangeToVIPContract()
-        self.selectContractName()
-        self.selectConStartDate()
+        self.scrollToElement('id',self.moveTo_predit_loanAmt_loc)
         self.inputPreLoanAmt()
+        self.scrollToElement('id',self.moveTo_contract_memo_loc)
         self.inputContractMo()
         self.uploadContractFile()
         self.submitContract()
