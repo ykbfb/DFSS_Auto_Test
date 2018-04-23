@@ -44,3 +44,6 @@ class Data:
 
     #强制退费
     force_clt_name = '需求书修改有限公司106'
+
+    #销售喜报
+    sal_clt_name = '需求书修改有限公司124'
