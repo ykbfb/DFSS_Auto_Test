@@ -35,13 +35,14 @@ class ApproveIntviewPage(Page):
 
     def gotoNeedApproveList(self):
         '''到邀约待审批列表页'''
+        time.sleep(2)
         self.click_element(*self.intview_nav_loc)
         self.click_element(*self.intview_appv_menu_loc)
         self.setWaitTime(20)
-        time.sleep(1)
+        time.sleep(2)
         self.switchToOneFrameByXpath(self.intview_list_frame_loc)
         self.click_element(*self.intview_status_loc)
-        time.sleep(1)
+        time.sleep(2)
         self.click_element(*self.need_appv_loc)
 
 #================================================================================

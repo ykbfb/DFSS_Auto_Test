@@ -23,7 +23,7 @@ class ServiceOrderTests(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username="xuweilan", password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.service_manager, password="123456", city=Data.city):
         login(self.driver).user_login(username, password, city)
 
     # 融服接单订单
@@ -31,6 +31,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.acceptOrder(Data.cmp_name)
@@ -46,6 +47,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.moveToExpert(Data.cmp_name)
@@ -59,6 +61,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.moveToAgencySearch(Data.cmp_name)
@@ -74,6 +77,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.createAimOrder(Data.cmp_name,Data.org_name,Data.prd_name)
@@ -89,6 +93,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.createSubOrder(Data.cmp_name,Data.credit_manager,Data.org_name)
@@ -104,6 +109,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.moveToOrgApproval(Data.cmp_name)
@@ -119,13 +125,13 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.estimateCreditManager(Data.cmp_name)
         my_order.setWaitTime(2)
         # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
         functions.insert_img(self.driver, current_time + "__myOrder_moveSubsOrderToOrgApproval.png")
-        my_order.setWaitTime(2)
         my_order.close()
 
     #【机构审批】--机构审批：不通过
@@ -134,6 +140,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.orgApproveReject(Data.cmp_name)
@@ -149,6 +156,7 @@ class ServiceOrderTests(myunit.MyTest):
         self.user_login_verify()
         time.sleep(1)
         b = Page(self.driver)
+        time.sleep(1)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.orgApprovePass(Data.cmp_name)
@@ -162,14 +170,14 @@ class ServiceOrderTests(myunit.MyTest):
     #@unittest.Myskip
     def test_0010_submitChanelResult(self):
         self.user_login_verify()
-        time.sleep(1)
+        time.sleep(2)
         b = Page(self.driver)
         b.close_alert()
         my_order = ServiceManageOrderPage(self.driver)
         my_order.submitChanelResult(Data.cmp_name)
         my_order.setWaitTime(2)
         # self.assertEqual(my_order.search_by_fuzzy(), '需求书修改有限公司')
-        functions.insert_img(self.driver, current_time + "__myOrder_OrgApprov_pass.png")
+        functions.insert_img(self.driver, current_time + "__myOrder_OrgApprove_pass.png")
         my_order.setWaitTime(2)
         my_order.close()
 

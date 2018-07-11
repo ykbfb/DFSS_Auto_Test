@@ -27,7 +27,7 @@ class SalseOrderTests(myunit.MyTest):
         login(self.driver).user_login(username, password, city)
 
     # 接单
-    def aa_test_1_acceptSalesOrder(self):
+    def test_1_acceptSalesOrder(self):
         self.user_login_verify()
         salse_order = SaleseOrderAsignPage(self.driver)
         salse_order.acceptSalseOrder(Data.cmp_name)

@@ -23,7 +23,7 @@ class createNewClient(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username=Data.sales, password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.sales, password="123456", city=Data.city):
         login(self.driver).user_login(username, password, city)
 
     # 测试创建客户-电话号码已经存在
@@ -32,16 +32,12 @@ class createNewClient(myunit.MyTest):
         new_client = createClient(self.driver)
         new_client.setWaitTime(2)
         new_client.open_rapidOperation()
-        new_client.setWaitTime(1)
         new_client.open_newClient()
-        new_client.setWaitTime(1)
         new_client.switchToNewClientFrame()
         new_client.inputMobile('12589756835')
         new_client.checkMobileIsDuplicate()
-        new_client.setWaitTime(1)
         # self.assertEqual(new_client.check_num_isExist(), '该客户已经归属当前登录用户')
         functions.insert_img(self.driver, current_time + "__Client_isExist.png")
-        new_client.setWaitTime(1)
         new_client.close()
 
     #测试创建客户
@@ -50,30 +46,23 @@ class createNewClient(myunit.MyTest):
         new_client = createClient(self.driver)
         new_client.setWaitTime(2)
         new_client.open_rapidOperation()
-        new_client.setWaitTime(1)
         new_client.open_newClient()
-        new_client.setWaitTime(1)
         new_client.switchToNewClientFrame()
         new_client.inputMobile(Data.lnk_moblie)
         new_client.checkMobileIsDuplicate()
-        new_client.setWaitTime(1)
-        # self.assertEqual(new_client.check_num_isExist(), '验证通过')
+        #self.assertEqual(new_client.check_num_isExist(), '验证通过')
         functions.insert_img(self.driver, current_time + "__Client_isNotExist.png")
         new_client.selectCltExeStatus()
         new_client.selectLoanArea()
         new_client.saveClient()
-        time.sleep(2)
-        # new_client.close_alert()
-        new_client.setWaitTime(2)
+        time.sleep(1)
         functions.insert_img(self.driver, current_time + "__Client_isCreateSuccess.png")
-        new_client.setWaitTime(3)
-        # new_client.close()
+        time.sleep(20)
 
-        #关闭创建页面，返回我的客户
+        # #关闭创建页面，返回我的客户
         self.user_login_verify()
         my_client = myClient(self.driver)
         my_client.gotoMyClientList_All(Data.lnk_moblie)
-        my_client.setWaitTime(2)
         # self.assertEqual(new_client.check_client_createSucess(), '')
         functions.insert_img(self.driver, current_time + "__CheckClient_isCreateSuccess.png")
         my_client.setWaitTime(2)

@@ -20,7 +20,7 @@ from .base import Page
 import time
 
 class SaleseOrderAsignPage(Page):
-    # 销售经理邀约审批
+    # 销售经理派单
     sales_nav_loc = (By.XPATH,'//*[@id="wnav"]/div[4]/div[1]/div[1]') #销售管理
     sales_order_menu_loc = (By.XPATH,'//*[@id="wnav"]/div[4]/div[2]/ul/li[4]/div/a/span[2]')#销售订单处理操作
     salseorder_list_frame_loc = '//*[@id="tabs"]/div[2]/div[2]/div/iframe'
@@ -61,13 +61,14 @@ class SaleseOrderAsignPage(Page):
     select_serv_mgr_loc = (By.ID,'chk0')#选择条线融服经理
     sel_reason_loc = (By.ID,'txtAssignReason0')#选择原因
     submit_btn_loc = (By.ID,'btnSubmit')#提交
-    sub_comfirm_btn_loc = (By.CLASS_NAME,'layui-layer-btn0')
+    sub_comfirm_btn_loc = (By.CLASS_NAME,'layui-layer-btn0')#提交确认
 
-    #待派单
+    #待派单页面
     def getNeedAsignSalseOrder(self,value):
         self.value = value
         self.click_element(*self.need_asign_tab_loc)
         self.input_value(self.clt_name_loc,value)
+        time.sleep(1)
         self.click_element(*self.search_btn_loc)
         time.sleep(1)
         self.click_element(*self.asign_odr_loc)

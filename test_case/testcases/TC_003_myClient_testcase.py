@@ -20,7 +20,7 @@ class MyClientTests(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username=Data.sales, password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.sales, password="123456", city=Data.city):
         login(self.driver).user_login(username, password, city)
     
 

@@ -22,7 +22,7 @@ class ArchiveContractTests(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统-管理端
-    def user_login_verify(self, username="sunquan", password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.finance_name, password="123456", city=Data.city):
         login(self.driver).user_login(username, password, city)
 
 
@@ -31,8 +31,8 @@ class ArchiveContractTests(myunit.MyTest):
         self.user_login_verify()
         arc_contract = ArchiveContractPage(self.driver)
         arc_contract.gotoNeedAchiveList(Data.cmp_name)
-        # arc_contract.archiveContractForCMP_VIP() #会员合同归档
-        arc_contract.archiveContractForCMP_BPO() #外包合同归档
+        arc_contract.archiveContractForCMP_VIP() #会员合同归档
+        #arc_contract.archiveContractForCMP_BPO() #外包合同归档
 
         # self.assertEqual(my_client.search_by_fuzzy(),'大坤哥自动化')
         functions.insert_img(self.driver, current_time + "__archiveContractForCMP.png")

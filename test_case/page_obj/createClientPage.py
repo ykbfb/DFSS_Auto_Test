@@ -65,10 +65,17 @@ class createClient(Page):
         self.find_element(*self.loan_area_loc).click()
     #关闭创建页面
     def closeClientDetailPage(self):
+        self.switchWindow()
         self.find_element(*self.close_createPage_loc).click()
 
-    def switchToDefaultContent(self):
+    #验证客户是否创建成功
+    client_mng_loc = (By.XPATH,'//*[@id="wnav"]/div[2]/div[1]/div[1]')
+    my_client_loc = (By.XPATH,'//*[@id="wnav"]/div[2]/div[2]/ul/li[1]/div/a/span[2]/label')
+    def checkClientCreateSuccess(self):
         self.switchToDefaultContent()
+        self.click_element(*self.client_mng_loc)
+        self.click_element(*self.my_client_loc)
+
 
 
     #============================================================================================== 
@@ -85,7 +92,7 @@ class createClient(Page):
         self.selectLoanArea()
         self.saveClient()
         time.sleep(2)
-        # self.close_alert()
+
 
     # --===========================================================================================
     # 验证case的执行结果

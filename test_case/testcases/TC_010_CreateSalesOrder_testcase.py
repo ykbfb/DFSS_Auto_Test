@@ -23,7 +23,7 @@ class OrderTests(myunit.MyTest):
     current_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
 
     # 登录融管系统
-    def user_login_verify(self, username=Data.sales, password="123456", city="suzhou"):
+    def user_login_verify(self, username=Data.sales, password="123456", city=Data.city):
         login(self.driver).user_login(username, password, city)
 
     # 创建企业主、个体户订单
@@ -32,9 +32,7 @@ class OrderTests(myunit.MyTest):
         my_client = myClient(self.driver)
         my_client.gotoMyClientList_All(Data.lnk_moblie)
         my_client.setWaitTime(2)
-        self.assertEqual(my_client.search_by_fuzzy(), Data.cmp_name)
         functions.insert_img(self.driver, current_time + "__myClient_fuzzysearch.png")
-        my_client.setWaitTime(2)
 
         order = NewOrderPage(self.driver)
         order.createOrderForCMP()

@@ -34,7 +34,7 @@ class loginTest(myunit.MyTest):
         elif  po.username_empty_hint() == 'The 用户名 field is required.' and po.password_empty_hint() == 'The 密码 field is required':
             self.assertEqual(po.username_empty_hint(),"The 用户名 field is required.")  #
             self.assertEqual(po.password_empty_hint(),"The 密码 field is required")
-            print("case1: pass")
+            print("case11: pass")
         else:
             print("case1: failed")
         functions.insert_img(self.driver,current_time+"__user_pwd_ept.png")

@@ -30,6 +30,7 @@ class ArchiveContractPage(Page):
     search_loc = (By.ID,'btnCheck') #查询按钮
 
     def gotoNeedAchiveList(self,contract_name):
+        time.sleep(1)
         self.contract_name = contract_name
         self.find_element(*self.finc_nav_loc).click()
         self.find_element(*self.contract_achiv_menu_loc).click()

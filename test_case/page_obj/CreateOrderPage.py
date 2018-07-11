@@ -28,27 +28,27 @@ class NewOrderPage(Page):
         self.switchToOneFrame(self.botom_frame_loc) # 切换到底部【客户详情】的iframe
 
     # 订单创建详情
-    createOrderBtn_loc = (By.XPATH,'//*[@id="btnAddOrder"]/span/span') #创建订单
-    new_order_frame_loc = '//*[@id="layui-layer-iframe2"]'
+    createOrderBtn_loc = (By.XPATH,'//*[@id="btnAddOrder"]/span/span') #创建销售订单
+    new_order_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     sel_contract_loc = 'contractsselections' # 合同选择
-    sel_service_loc = 'selChannelService' # 对应融资经理
-    isOnlyCreditCard_loc = 'rad_NoOnlyRe' # 是否仅办信用卡
 
     #企业主、个体户订单详情
-    cmp_area_loc = 'cmp_area1_list_s01' # 公司所在地
+    moveto_cmp_area_loc = 'CMP_AREA'
+    cmp_area_loc =(By.NAME,'CMP_AREA')  # 公司所在地
     year_income_loc = 'txtAllRuing' # 近一年总流水
     loan_useFor_loc = 'txtUseWay'# 借款用途
     paybackSource_loc = 'Select1' # 还款来源
     fundDate_loc = 'cmpsg_time_van' # 公司成立时间
 
     def inputOrderDetail_CMP(self):
-        self.find_element(*self.createOrderBtn_loc).click()
+        self.click_element(*self.createOrderBtn_loc)
+        self.switchToParentFrame()
         self.switchWindow()
         self.switchToOneFrameByXpath(self.new_order_frame_loc)
         self.getDropdownMenuById(self.sel_contract_loc, 1)
-        self.getDropdownMenuById(self.sel_service_loc, 1)
-        self.getRadioButton(self.isOnlyCreditCard_loc)
-        self.getRadioButton(self.cmp_area_loc)
+        time.sleep(1)
+        self.scrollToElement('name',self.moveto_cmp_area_loc)
+        self.click_element(*self.cmp_area_loc)
         self.getDateTimePicker(self.fundDate_loc, '2012-06-18')
         self.getDropdownMenuById(self.year_income_loc, 6)
         self.getDropdownMenuById(self.loan_useFor_loc, 7)
@@ -66,8 +66,6 @@ class NewOrderPage(Page):
         self.switchWindow()
         self.switchToOneFrameByXpath(self.new_order_frame_loc)
         self.getDropdownMenuById(self.sel_contract_loc, 1)
-        self.getDropdownMenuById(self.sel_service_loc, 1)
-        self.getRadioButton(self.isOnlyCreditCard_loc)
         self.find_element(*self.person_loanAmt_loc).clear()
         self.find_element(*self.person_loanAmt_loc).send_keys(55)
         self.find_element(*self.person_loanPriod_loc).click()
@@ -99,19 +97,16 @@ class NewOrderPage(Page):
         self.find_element(*self.add_prd_loc).click()
 
     #提交主订单
-    submit_order_loc = (By.XPATH,'//*[@id="main"]/form/table/tbody/tr[7]/td/input')
+    moveto_submit_order_loc = '//*[@id="main"]/form/table/tbody/tr[6]/td/input'
+    submit_order_loc = (By.XPATH,'//*[@id="main"]/form/table/tbody/tr[6]/td/input')
+    confirm_btn_loc = (By.CLASS_NAME,'layui-layer-btn0')
     def submitOrder(self):
+        self.scrollToElement('xpath',self.moveto_submit_order_loc)
         self.find_element(*self.submit_order_loc).click()
         self.setWaitTime(2)
-
-
-    # 处理弹窗
-    close_loc = (By.CLASS_NAME,'layui-layer-btn0')
-    def closeNewOrderPage(self):
         self.switchWindow()
         time.sleep(1)
-        self.find_element(*self.close_loc).click()
-        self.setWaitTime(10)
+        self.click_element(*self.confirm_btn_loc)
 
 #============================================================================================================
 #创建主订单公共方法
@@ -121,7 +116,6 @@ class NewOrderPage(Page):
         self.clickOrderTab()
         self.inputOrderDetail_CMP()
         self.submitOrder()
-        self.closeNewOrderPage()
 
     def createOrderForPerson(self):
         '''工薪族、其他订单'''

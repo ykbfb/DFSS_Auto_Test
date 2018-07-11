@@ -30,7 +30,7 @@ class ServiceManageOrderPage(Page):
     order_list_frame_loc = '//*[@id="tabs"]/div[2]/div[2]/div/iframe'
     cmp_name_loc = (By.XPATH,'//*[@id="div_cpname"]/input') #客户名称、姓名
     search_loc = (By.XPATH,'//*[@id="main"]/form/div/div/div[2]/div[1]') #查询
-    recive_order_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[11]/input[1]') #接单按钮
+    recive_order_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[12]/input[1]') #接单按钮
     pop_frame_loc = '//*[@id="layui-layer3"]/div[2]/iframe'#弹窗frame
     submit_loc = (By.XPATH,'//*[@id="main"]/form/table/tbody/tr[6]/td/input')
 
@@ -43,10 +43,11 @@ class ServiceManageOrderPage(Page):
     #打开我的订单
     #====================================================================================================
     def gotoMyOrder(self):
+        time.sleep(1)
         self.find_element(*self.order_nav_loc).click()
         self.setWaitTime(10)
         self.find_element(*self.my_order_loc).click()
-        time.sleep(2)
+        time.sleep(1)
         self.switchToDefaultContent()
         self.switchToOneFrameByXpath(self.order_list_frame_loc)
 
@@ -81,7 +82,7 @@ class ServiceManageOrderPage(Page):
     pre_loan_inv_loc = (By.XPATH,'//*[@id="ulType"]/li[2]') #贷前调查
     clt_name_loc = (By.XPATH,'//*[@id="div_cpname"]/input') #客户名称
     pre_search_loc = (By.XPATH,'//*[@id="main"]/form/div/div/div[2]/div[1]')#查询
-    movetoExpert_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[16]/input') #转入专家测评
+    movetoExpert_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[17]/input') #转入专家测评
     confirm_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     memo_loc = (By.XPATH,'//*[@id="main"]/div[1]/table/tbody/tr[1]/td[2]/textarea')
     confirm_btn_loc = (By.XPATH,'//*[@id="main"]/div[1]/table/tbody/tr[2]/td/button')
@@ -93,7 +94,7 @@ class ServiceManageOrderPage(Page):
         time.sleep(1)
         self.find_element(*self.clt_name_loc).clear()
         self.find_element(*self.clt_name_loc).send_keys(cmp_name)
-        time.sleep(1)
+        time.sleep(2)
         self.find_element(*self.pre_search_loc).click()
         time.sleep(2)
         self.find_element(*self.movetoExpert_loc).click()
@@ -111,7 +112,7 @@ class ServiceManageOrderPage(Page):
     exprt_tab_loc = (By.XPATH,'//*[@id="ulType"]/li[3]') #专家测评
     expert_clt_name_loc = (By.XPATH,'//*[@id="div_cpname"]/input') #客户名称
     exprt_search_loc = (By.XPATH,'//*[@id="main"]/form/div/div/div[2]/div[1]')#查询
-    moveToAgency_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[15]/input')#转入机构寻访
+    moveToAgency_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[16]/input')#转入机构寻访
     exp_pop_iframe_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     exp_memo_loc = (By.XPATH,'//*[@id="main"]/div[1]/table/tbody/tr[1]/td[2]/textarea')#备注
     exp_submit_loc = (By.XPATH,'//*[@id="main"]/div[1]/table/tbody/tr[2]/td/button')#提交
@@ -126,7 +127,7 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.expert_clt_name_loc).send_keys(cmp_name)
         time.sleep(2)
         self.find_element(*self.exprt_search_loc).click()
-        time.sleep(1)
+        time.sleep(2)
         self.find_element(*self.moveToAgency_loc).click()
         self.setWaitTime(10)
         self.switchWindow()
@@ -143,7 +144,7 @@ class ServiceManageOrderPage(Page):
     agency_tab_loc = (By.XPATH,'//*[@id="ulType"]/li[4]')#专家测评
     agen_clt_name_loc = (By.XPATH,'//*[@id="div_cpname"]/input')#客户名称
     agen_search_loc = (By.XPATH,'//*[@id="main"]/form/div/div/div[2]/div[1]')#查询
-    agen_evalu_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[10]/input[1]')#预测评
+    agen_evalu_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[11]/input[1]')#预测评
     agen_pop_iframe_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"#弹窗的iframe
     np_comfirm_loc = (By.XPATH,'//*[@id="layui-layer2"]/div[3]/a') #没有合适的产品
     add_more_prd_loc = (By.ID,'Add_More')#添加更多产品
@@ -151,7 +152,7 @@ class ServiceManageOrderPage(Page):
     sel_org_loc = (By.ID,'_easyui_combobox_86')#下拉框选择机构
     # sel_org_loc = (By.XPATH,'//id[contains(@id, "_easyui_combobox"')#下拉框选择机构
     prd_name_loc = (By.XPATH,'//*[@id="td_PrdName"]/span/input[1]')#产品名称
-    sel_prd_loc = (By.ID,'_easyui_combobox_276')#选择产品
+    sel_prd_loc = (By.ID,'_easyui_combobox_277')#选择产品
     add_prd_reason_loc = (By.ID,'addReason')#添加理由
     add_btn_loc = (By.ID,'btn_addMore')#添加按钮
     sel_credit_manager_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[1]/div/img')#展开信贷经理
@@ -215,7 +216,7 @@ class ServiceManageOrderPage(Page):
 #====================================================================================================
 #创建子订单
 #====================================================================================================
-    aim_order_mng_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[10]/input[2]')
+    aim_order_mng_loc = (By.XPATH,'//*[@id="myTb"]/tbody/tr[2]/td[11]/input[2]')#意向单管理
     sub_pop_iframe_loc =  "//iframe[contains(@id, 'layui-layer-iframe')]"
     credit_manage_loc = (By.ID,'txt_BCName')#信贷经理
     sub_org_name_loc = (By.ID,'txt_OrgName')#机构名称
@@ -433,20 +434,16 @@ class ServiceManageOrderPage(Page):
         self.find_element(*self.org_deal_desc_loc).send_keys('自动化测试--子订单成交')
         self.find_element(*self.org_deal_success_loc).click()
         self.find_element(*self.org_deal_submit_loc).click()
-        time.sleep(2)
+        time.sleep(1)
         self.close_alert()
-        time.sleep(5)
-        self.switchWindow()
-        # self.switchToCurrentWindow()
-        # self.switchToSecondWindow()
         time.sleep(2)
-        self.switchToDefaultContent()
+        self.switchToParentFrame()   #注意： 如果弹出的窗口跳出了它原本所在的iframe，即悬浮在外层的iframe，则只需将iframe切换到他的上层iframe即可用switch_to.window切换到弹出窗口 进行定位
+        self.switchWindow()
         self.inputChanalResultDetail()
 
 #------------------------------------------------------------------------------------------------
     #放款喜报填写详情页
-    chanel_result_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
-    # chanel_result_frame_loc = '/html/body/div[4]/div[2]/iframe'
+    chanel_result_pop_frame_loc = "//iframe[contains(@id, 'layui-layer-iframe')]"
     loan_total_amt_loc = (By.ID,'LendingTotal')#放款额度
     loan_org_rate_loc = (By.ID,'txtOrgRate')#机构放款费率
     loan_rate_type_loc = 'sltOrgRateType'#利率类型
@@ -454,6 +451,8 @@ class ServiceManageOrderPage(Page):
     loan_other_rate_type_loc = 'sltOrgOtherRateType'#其他利率类型
     loan_repay_type_loc = 'sel_RePayType'#还款方式
     loan_oprate_type_loc = 'sel_DealWith'#办理方式
+    loan_certicate_loc = 'UploadInput'#放款凭证
+    upload_sucess_loc =(By.CLASS_NAME,'layui-layer-btn0')
     loan_startdate_loc = 'txtLendingDate'#放款期限： 起始日期
     loan_enddate_loc = 'txtLendingDateEnd'#放款期限： 结束日期
     loan_memo_loc = (By.ID,'Memo')#备注
@@ -462,19 +461,21 @@ class ServiceManageOrderPage(Page):
     loan_confirm_loc = (By.CLASS_NAME,'layui-layer-btn0')#确认无误
 
     def inputChanalResultDetail(self):
-        time.sleep(10)
-        self.switchToOneFrameByXpath(self.chanel_result_frame_loc)
+        self.switchToOneFrameByXpath(self.chanel_result_pop_frame_loc)
         self.setWaitTime(10)
         self.find_element(*self.loan_total_amt_loc).clear()
         self.find_element(*self.loan_total_amt_loc).send_keys(500000)
         self.find_element(*self.loan_org_rate_loc).clear()
         self.find_element(*self.loan_org_rate_loc).send_keys(10)
-        self.getDropdownMenuById(self.loan_oprate_type_loc, 1)
+        self.getDropdownMenuById(self.loan_rate_type_loc, 2)
         self.scrollToElement('xpath',self.moveto_loan_submit_loc)
         self.find_element(*self.loan_org_other_rate_loc).clear()
         self.find_element(*self.loan_org_other_rate_loc).send_keys(10)
         self.getDropdownMenuById(self.loan_other_rate_type_loc, 1)
         self.getDropdownMenuById(self.loan_repay_type_loc, 1)
+        self.uploadFile('id',self.loan_certicate_loc,r'F:\PyhtonTest\图图.jpg')
+        self.switchWindow()
+        self.click_element(*self.upload_sucess_loc)
         self.getDropdownMenuById(self.loan_oprate_type_loc, 1)
         self.getDateTimePicker(self.loan_startdate_loc,time.strftime('%Y-%m-%d',time.localtime(time.time())))
         self.getDateTimePicker(self.loan_enddate_loc,time.strftime('%Y-%m-%d',time.localtime(time.time())))
@@ -484,4 +485,6 @@ class ServiceManageOrderPage(Page):
         time.sleep(2)
         self.switchWindow()
         self.find_element(*self.loan_confirm_loc).click()
+        time.sleep(1)
+        self.close_alert()
 

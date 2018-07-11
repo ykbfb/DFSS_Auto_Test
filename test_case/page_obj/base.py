@@ -61,23 +61,27 @@ class Page(object):
     def script(self,src):
         return self.driver.execute_script(src)
 
-    def setWaitTime(self,wait_time):
+    def setWaitTime(self,wait_time): #隐式等待
         self.wait_time = wait_time
         self.driver.implicitly_wait(wait_time)
 
-    def waitElmentUntill(self,wait_time,ele_path): #wait_time等待时间， ele_path元素路径
+    def waitElmentUntill(self,wait_time,ele_path): #现实等待：wait_time等待时间， ele_path元素路径
         self.wait_time = wait_time
         self.ele_path = ele_path
         try:
-            WebDriverWait(self.driver,wait_time).until(
-                EC.presence_of_element_located(ele_path))
+            WebDriverWait(self.driver,wait_time).until(EC.presence_of_element_located(ele_path))
         except TimeoutError as e:
             print("等待超时，元素找不到： " + e)
 
     def close(self):
-        time.sleep(2)
+        # self.delete_cookies()
         self.KeyboardActions()
         self.driver.quit()
+
+    def delete_cookies(self):
+        cookies = self.driver.get_cookies()
+        print(f"main: cookies = {cookies}")
+        self.driver.delete_all_cookies()
 
 #==================================================================================================================
     #切换页面框架
@@ -104,22 +108,36 @@ class Page(object):
 
     def switchToOneFrame(self, frame):  # frame参数为指定iframe 的id、name； 如果没有id、name则可以用frame的下标来表示
         self.frame = frame
-        self.driver.switch_to.frame(frame)
-        print('switch to one frame by ID...')
+
+        try:
+            self.driver.switch_to.frame(frame)
+            print('switch to one frame by ID...')
+        except NoSuchElementException as e:
+            print("找不到指定的iframe",e)
+
 
     def switchToDefaultContent(self):  # 切换回主文档
-        self.driver.switch_to.default_content()
-        print('switch to default frame...')
+        try:
+            self.driver.switch_to.default_content()
+            print('switch to default frame...')
+        except NoSuchElementException as e:
+            print('切换iframe到最顶层失败',e)
 
     def switchToOneFrameByXpath(self, frame):  # frame没有id,name, 根据xpath定位
         self.frame = frame
-        trg_frame = self.driver.find_element_by_xpath(frame)
-        self.driver.switch_to.frame(trg_frame)
-        print('has switch to the frame by xpath: ', frame)
+        try:
+            trg_frame = self.driver.find_element_by_xpath(frame)
+            self.driver.switch_to.frame(trg_frame)
+            print('has switch to the frame by xpath: ', frame)
+        except NoSuchElementException as e:
+            print('未找到指定的iframe',e)
 
     def switchToParentFrame(self):  # 回退到上一层frame
-       self.driver.switch_to.parent_frame()
-       print('swithch to parent frame success')
+        try:
+           self.driver.switch_to.parent_frame()
+           print('swithch to parent frame success')
+        except NoSuchElementException as e:
+            print('未找到上层iframe',e)
 
 #=================================================================================================================================
     #窗口最大化
@@ -144,26 +162,50 @@ class Page(object):
                 self.driver.switch_to.window(handle)
                 print('get current window')
 
+    # 切换窗口
+    def switchWindow2(self):
+        # all_handles = self.driver.window_handles  # 获取所有窗口句柄
+        for handle in self.driver.window_handles:  # 方法二，始终获得当前最后的窗口，所以多要多次使用
+            self.driver.switch_to.window(handle)
+
     # 返回当前窗口
     def switchToCurrentWindow(self):
         current_window = self.driver.current_window_handle
-        self.driver.switch_to.window(current_window)
-        print("Now has switch to current window!")
-        print(self.driver.current_window_handle.title())
+        try:
+            self.driver.switch_to.window(current_window)
+            print("Now has switch to current window!")
+            print(self.driver.current_window_handle.title())
+        except WindowsError as e:
+            print('窗口切换失败： ', e)
 
     # 返回当前窗口的上一个窗口
     def switchToLastWindow(self):
-        #         current_win = driver.current_window_handle#返回当前窗口
         all_win = self.driver.window_handles  # 返回所有窗口
-        self.driver.switch_to.window(all_win[0])
-        print('has return to last window')
+        try:
+            self.driver.switch_to.window(all_win[0])
+            print('has return to last window')
+        except WindowsError as e:
+            print('窗口切换失败： ',e)
 
-    # 返回当前窗口的上一个窗口
+
+    # 返回当前窗口的第二个窗口
     def switchToSecondWindow(self):
-        #         current_win = driver.current_window_handle#返回当前窗口
         all_win = self.driver.window_handles  # 返回所有窗口
-        self.driver.switch_to.window(all_win[2])
-        print('has return to last window')
+        try:
+            self.driver.switch_to.window(all_win[2])
+            print('has return to last window')
+        except WindowsError as e:
+            print('窗口切换失败： ',e)
+
+    # 返回当前窗口的最后一个个窗口
+    def switchToLastWindow2(self):
+        all_win = self.driver.window_handles  # 返回所有窗口
+        try:
+            self.driver.switch_to.window(all_win[-1])
+            print('has return to last window')
+        except WindowsError as e:
+            print('窗口切换失败： ',e)
+
 
 #==========================================================================================================================
     # 将鼠标移动到指定位置
