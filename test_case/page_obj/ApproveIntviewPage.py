@@ -45,7 +45,7 @@ class ApproveIntviewPage(Page):
         time.sleep(2)
         self.click_element(*self.need_appv_loc)
 
-        #gbhghg 
+       
 
 #================================================================================
     def approveIntview(self):
