@@ -23,7 +23,7 @@ Created on 2017年4月25日
 '''
 class Page(object):
     
-    dfss_url = 'http://10.40.3.230:10023/Account/Logon'
+    dfss_url = 'http://WWWW.AAAAA/Account/Logon'
     
     def __init__(self,selenium_driver,base_url=dfss_url,parent=None):
         self.base_url = base_url
